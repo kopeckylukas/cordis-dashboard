@@ -3,10 +3,12 @@ package Cordis.DB;
 import java.util.List;
 
 /**
- * Interface 
+ * 
  * @author Girish Luka
  * @param <T> Generic Value Type
  */
+
+//
 public interface DAO<T> {
     T get(String code);
     List<T> getAll();
