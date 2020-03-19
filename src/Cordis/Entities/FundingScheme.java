@@ -6,7 +6,7 @@
 package Cordis.Entities;
 
 /**
- *
+ * this is class describing object funding scheem
  * @author lukaskopecky
  */
 public class FundingScheme {
