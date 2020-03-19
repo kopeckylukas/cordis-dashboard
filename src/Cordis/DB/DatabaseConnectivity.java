@@ -71,6 +71,12 @@ public class DatabaseConnectivity {
         }
     }
     
+    /**
+     * 
+     * @param sql string sql query 
+     * @param col names of columns
+     * @return 
+     */
     public String [][] GetCompoundTable(String sql, String [] col){
 
         
