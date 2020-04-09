@@ -43,7 +43,7 @@ public class Main{
     
     public void execute() throws Exception{
         //DatabaseConnectivity connect = new DatabaseConnectivity();
-       
+       //connect.ReadSQLi1();
         //displayAllOrganisations();
         displayCompound();
         System.out.println("result");
@@ -53,25 +53,20 @@ public class Main{
         frame.setVisible(true);
     }
     
-    public static void displayCompound(){
-        String query = "SELECT p.proTitle, o.orgName, pa.role\n" +
-                       "FROM Organisation o\n" +
-                       "JOIN Participation pa\n" +
-                       "JOIN Project p \n" +
-                       "ON o.orgID = pa.orgID\n" +
-                       "AND pa.proID = p.proID";
-        String [] col = {"p.proTitle", "o.orgName", "pa.role"};
+    public static void displayCompound() throws Exception{
+        String query = "SELECT p.proTitle, o.orgName, pa.role FROM Organisation o JOIN Participation pa JOIN Project p  ON o.orgID = pa.orgID AND pa.proID = p.proID";
+        String [] col = {"proTitle", "orgName", "role"};
         for(int i = 0; i<3; i++){
             System.out.println(col[i]);   
         }
         
-        String [] [] result  =  connect.GetCompoundTable(query,col);
+        String [] [] result  =  connect.GetCompoundTable1(query,3);
         
         System.out.println("length "+ result.length);
         
-        for(int i = 0; i<result.length; i++){
-            for(int e = 0; e<col.length;e++){
-                System.out.println(" "+ result [i] [e]);
+        for (String[] result1 : result) {
+            for (int e = 0; e<col.length; e++) {
+                System.out.println(" " + result1[e]);
             }
             System.out.println(" ");
         }

@@ -44,7 +44,7 @@ public class DatabaseConnectivity {
      * @param col
      * @return
      */
-    public String [][] GetCompoundTable1(String sql, String [] col){
+    public String [][] GetCompoundTable1(String sql, Integer col){
 
         
        
@@ -54,12 +54,11 @@ public class DatabaseConnectivity {
             while (rs.next()) {
                 count++;
             }
-            String [][] resultObject = new String[count][col.length];
+            String [][] resultObject = new String[count][col];
             count = 0;
             while (rs.next()){
-                for(int i = 0; i<col.length; i++){
-                    resultObject[count][i]= rs.getString(col[i]);
-                    //System.out.println(resultObject[count][i]);
+                for(int i = 0; i<col; i++){
+                    resultObject[count][i]= rs.getString(i);
                 }        
                 count++;        
             }
@@ -77,32 +76,31 @@ public class DatabaseConnectivity {
      * @param col names of columns
      * @return 
      */
-    public String [][] GetCompoundTable(String sql, String [] col){
-
+    public String [][] GetCompoundTable(String sql, String [] col) throws Exception {
+         Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
+         if(con == null) throw new Exception();
+         Statement st = con.createStatement();
+         String [] [] toReturn ={};  
+            System.out.println("Connected to Cordis");
+            
+            //String sql = "select orgName, orgID from Organisation where orgCountry = 'CZ'";
+           //st.executeUpdate("");
+           
+            ResultSet s = st.executeQuery(sql);
+            
+           while(s.next()){
+               String Name = s.getString("o.orgName");
+               Integer orgID = s.getInt("pa.role");
+               
+               System.out.println("Name: " + Name+orgID);
+           }
+           s.close();
         
+   
        
-        try (PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()) {
-            Integer count = 0;
-            while (rs.next()) {
-                count++;
-            }
-            String [][] resultObject = new String[count][col.length];
-            count = 0;
-            while (rs.next()){
-                for(int i = 0; i<col.length; i++){
-                    resultObject[count][i]= rs.getString(col[i]);
-                    //System.out.println(resultObject[count][i]);
-                }        
-                count++;        
-            }
-            //rs.close();
-            return resultObject;
-        } catch (SQLException e) {
-            System.err.println(e);
-            return null ;
-        }
+        return toReturn;
     }
+    
     
     public static void ReadSQLi() throws Exception{
          Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
@@ -111,16 +109,18 @@ public class DatabaseConnectivity {
          
             System.out.println("Connected to Cordis");
             
-            String sql = "select orgName, orgID from Organisation where orgCountry = 'CZ'";
+            String sql = "select Organisation.orgName, Organisation.orgID, Participation.role from Organisation Join Participation ON Organisation.orgID = Participation.orgID where orgCountry = 'CZ'";
            //st.executeUpdate("");
            
             ResultSet s = st.executeQuery(sql);
             
            while(s.next()){
                String Name = s.getString("orgName");
+               String Name1 = s.getString("role");
                Integer orgID = s.getInt("orgID");
                
-               System.out.println("Name: " + Name+orgID);
+               
+               System.out.println("Name: " + Name1+orgID);
            }
            s.close();
            
@@ -130,6 +130,34 @@ public class DatabaseConnectivity {
     }
 
    
+    public static void ReadSQLi1() throws Exception{
+         Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
+         if(con == null) throw new Exception();
+         Statement st = con.createStatement();
+         
+            System.out.println("Connected to Cordis");
+            
+            String sql = "SELECT Project.proTitle, Organisation.orgName, Participation.role FROM Organisation JOIN Participation JOIN Project ON Organisation.orgID = Participation.orgID AND Participation.proID = Project.proID";
+           //st.executeUpdate("");
+           
+            ResultSet s = st.executeQuery(sql);
+            
+           while(s.next()){
+               String Name = s.getString(1);
+               String Name1 = s.getString(2);
+               String orgID = s.getString(3);
+               
+               
+               System.out.println("Name: "+ Name+ Name1+orgID);
+           }
+           s.close();
+           
+           
+           
+           //StringBuilder sb = new StringBuilder(s);
+    }
+    
+    
     
 }
 

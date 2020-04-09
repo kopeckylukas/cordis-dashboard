@@ -101,7 +101,7 @@ public class getDataByObject {
         String sql = "select proID, proRCN, proAcronym, proTitle, proFrameworkProgramme, "
                    + "proStartDate, proEndDate, projectURL, proObjetives, proTotalCost, "
                    + "proEcMaxContribution, proSubject, proStatus, topicID, callID, fCode "
-                   + "from Project WHERE "+where;
+                   + "from Project WHERE " +where;
         List<Project> project = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(sql);
              ResultSet rs = ps.executeQuery()) {
