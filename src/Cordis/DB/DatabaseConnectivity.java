@@ -6,159 +6,173 @@ package Cordis.DB;
  * and open the template in the editor.
  */
 
-import Cordis.Entities.Organisation;
-import java.io.*;
-import java.util.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
-import java.io.*;
 import java.util.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
-import java.sql.Statement;
+
+
 /**
-/**
- *
+ * DatabaseConnectivity 
+ * Query any local database
  * @author lukaskopecky
  */
 public class DatabaseConnectivity {
     
+    
     private Connection connection;
     
+    /**
+     * Default Constructor
+     * Creates Connection to SQLite database Cordis2020
+     */
     public DatabaseConnectivity(){
         try {
+            
             String dbLocation = "jdbc:sqlite:Cordis2020.sqlite3";
-            connection = DriverManager.getConnection(dbLocation);        
-        } catch (SQLException e) {
+            connection = DriverManager.getConnection(dbLocation);
+            System.out.println("[Connection] ... Database Connected");
+        }catch (SQLException e) {
+            
             System.err.println(e);
         } 
     }
     
     /**
-     *
-     * @param sql
-     * @param col
-     * @return
+     * Universal Constructor
+     * Crates connection to any local database
+     * @param dbLocation local host location of a SQLite database 
      */
-    public String [][] GetCompoundTable1(String sql, Integer col){
-
-        
-       
-        try (PreparedStatement ps = connection.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()) {
-            Integer count = 0;
-            while (rs.next()) {
-                count++;
-            }
-            String [][] resultObject = new String[count][col];
-            count = 0;
-            while (rs.next()){
-                for(int i = 0; i<col; i++){
-                    resultObject[count][i]= rs.getString(i);
-                }        
-                count++;        
-            }
-            //rs.close();
-            return resultObject;
-        } catch (SQLException e) {
+    public DatabaseConnectivity(String dbLocation){
+        try {
+            connection = DriverManager.getConnection(dbLocation);
+            System.out.println("[Connection] ... Database Connected");
+        }catch (SQLException e) {
+            
             System.err.println(e);
-            return null ;
-        }
+        } 
     }
     
     /**
-     * 
-     * @param sql string sql query 
-     * @param col names of columns
-     * @return 
+     * Retrieves data from in form of Two Dimensional Array
+     * @param <T> List, Type List of Strings
+     * @param SQLi SQL query
+     * @return Retrieved data form a database in form of 2D Array
      */
-    public String [][] GetCompoundTable(String sql, String [] col) throws Exception {
-         Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
-         if(con == null) throw new Exception();
-         Statement st = con.createStatement();
-         String [] [] toReturn ={};  
-            System.out.println("Connected to Cordis");
-            
-            //String sql = "select orgName, orgID from Organisation where orgCountry = 'CZ'";
-           //st.executeUpdate("");
-           
-            ResultSet s = st.executeQuery(sql);
-            
-           while(s.next()){
-               String Name = s.getString("o.orgName");
-               Integer orgID = s.getInt("pa.role");
-               
-               System.out.println("Name: " + Name+orgID);
-           }
-           s.close();
+    public <T> List readDatabase(String SQLi){
         
+        //Try: Connect database and execute query
+        try (PreparedStatement st = connection.prepareStatement(SQLi);
+            ResultSet resultRow = st.executeQuery()) {
+            
+            System.out.println("[Query] ... Query executed");
+            
+            //Creates List of List to be returned
+            List<List<String>> listOfRows = new ArrayList();
+            
+            //Retrieving the ResultSetMetaData object
+            ResultSetMetaData rsmd = resultRow.getMetaData();
+            
+            //Get Number of Retrievd Colums
+            int columnNumber = rsmd.getColumnCount();
+            
+            //Loops through Rows of Retrieved Data
+            while(resultRow.next()){
+                
+                //Creates row list
+                List<String> row = new ArrayList();
+                
+                //Adds columns into rows
+                for(int i = 1; i <= columnNumber; i++){
+                    
+                    row.add(resultRow.getString(i));    
+                }
+                
+                //Adds row into List
+                listOfRows.add(row);
+            }
+            
+            //Closes result set retireved from the database
+            resultRow.close();
+            
+            //Returns retrieved data in form of 2D ArrayList
+            return listOfRows; 
+            
+        } catch (SQLException e) {
+            
+            System.err.println(e);
+            return null;    
+        } 
+    }
+    
    
-       
-        return toReturn;
+    /**
+     * Retrieves data from in form of Two Dimensional Array 
+     * First row is name of the columns
+     * @param <T> List, Type List of Strings
+     * @param SQLi SQL query
+     * @return Retrieved data form a database in form of 2D Array
+     */
+    public <T> List readDatabaseWithNames(String SQLi){
+        
+        //Try: Connect database and execute query
+        try (PreparedStatement st = connection.prepareStatement(SQLi);
+            ResultSet resultRow = st.executeQuery()) {
+            System.out.println("[Query] ... Query executed");
+            
+            //Creates List of List to be returned
+            List<List<String>> listOfRows = new ArrayList();
+            
+            //Retrieving the ResultSetMetaData object
+            ResultSetMetaData rsmd = resultRow.getMetaData();
+            
+            //Get Number of Retrievd Colums
+            int columnNumber = rsmd.getColumnCount();
+            
+            //Creates First row carrying names of columns
+            List<String> firstRow = new ArrayList();
+            
+            //Adds columns into rows
+            for(int i = 1; i <= columnNumber; i++){
+                    
+                firstRow.add(rsmd.getColumnName(i));    
+            }
+                
+            //Adds row into List
+            listOfRows.add(firstRow);
+            
+            //Loops through Rows of Retrieved Data
+            while(resultRow.next()){
+                
+                //Creates row list
+                List<String> row = new ArrayList();
+                
+                //Adds columns into rows
+                for(int i = 1; i <= columnNumber; i++){
+                    
+                    row.add(resultRow.getString(i));    
+                }
+                
+                //Adds row into List
+                listOfRows.add(row);
+            }
+            
+            //Closes result set retireved from the database
+            resultRow.close();
+            
+            //Returns retrieved data in form of 2D ArrayList
+            return listOfRows; 
+            
+        } catch (SQLException e) {
+            
+            System.err.println(e);
+            return null;    
+        } 
+        
     }
-    
-    
-    public static void ReadSQLi() throws Exception{
-         Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
-         if(con == null) throw new Exception();
-         Statement st = con.createStatement();
-         
-            System.out.println("Connected to Cordis");
-            
-            String sql = "select Organisation.orgName, Organisation.orgID, Participation.role from Organisation Join Participation ON Organisation.orgID = Participation.orgID where orgCountry = 'CZ'";
-           //st.executeUpdate("");
-           
-            ResultSet s = st.executeQuery(sql);
-            
-           while(s.next()){
-               String Name = s.getString("orgName");
-               String Name1 = s.getString("role");
-               Integer orgID = s.getInt("orgID");
-               
-               
-               System.out.println("Name: " + Name1+orgID);
-           }
-           s.close();
-           
-           
-           
-           //StringBuilder sb = new StringBuilder(s);
-    }
-
-   
-    public static void ReadSQLi1() throws Exception{
-         Connection con = DriverManager.getConnection("jdbc:sqlite:Cordis2020.sqlite3");
-         if(con == null) throw new Exception();
-         Statement st = con.createStatement();
-         
-            System.out.println("Connected to Cordis");
-            
-            String sql = "SELECT Project.proTitle, Organisation.orgName, Participation.role FROM Organisation JOIN Participation JOIN Project ON Organisation.orgID = Participation.orgID AND Participation.proID = Project.proID";
-           //st.executeUpdate("");
-           
-            ResultSet s = st.executeQuery(sql);
-            
-           while(s.next()){
-               String Name = s.getString(1);
-               String Name1 = s.getString(2);
-               String orgID = s.getString(3);
-               
-               
-               System.out.println("Name: "+ Name+ Name1+orgID);
-           }
-           s.close();
-           
-           
-           
-           //StringBuilder sb = new StringBuilder(s);
-    }
-    
     
     
 }
-
-

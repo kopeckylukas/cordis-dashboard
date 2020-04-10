@@ -42,37 +42,47 @@ public class Main{
     }
     
     public void execute() throws Exception{
-        //DatabaseConnectivity connect = new DatabaseConnectivity();
-       //connect.ReadSQLi1();
+       
+        
+        System.out.println("[Execute] ... Start");
+        
+        /* TESTING FUNCTIONS */
+        
+        databaseConnectivityTest_SELECT();
+       
         //displayAllOrganisations();
-        displayCompound();
-        System.out.println("result");
+        
+
      
         //displayAllProjects();
-        LukasPart frame = new LukasPart();
-        frame.setVisible(true);
+//        LukasPart frame = new LukasPart();
+//        frame.setVisible(true);
+
+        System.out.println("[Execute] ... END");
     }
     
-    public static void displayCompound() throws Exception{
+    /**
+     * Select Query Test
+     */
+    public static void databaseConnectivityTest_SELECT(){
         String query = "SELECT p.proTitle, o.orgName, pa.role FROM Organisation o JOIN Participation pa JOIN Project p  ON o.orgID = pa.orgID AND pa.proID = p.proID";
-        String [] col = {"proTitle", "orgName", "role"};
-        for(int i = 0; i<3; i++){
-            System.out.println(col[i]);   
-        }
         
-        String [] [] result  =  connect.GetCompoundTable1(query,3);
+        List<List<String>> list = connect.readDatabase(query);
         
-        System.out.println("length "+ result.length);
         
-        for (String[] result1 : result) {
-            for (int e = 0; e<col.length; e++) {
-                System.out.println(" " + result1[e]);
+        
+        for (List<String> array : list) {
+            for (String i : array)  {
+                System.out.println(i);
             }
-            System.out.println(" ");
+            System.out.println("");
         }
         
     }
     
+   /**
+    * Retrieve all organisations and saves them into List type Organisation
+    */
     public static void displayAllOrganisations() {
         System.out.println("Organisation List");
         List<Organisation> org = projectDB.getOrganisation();
@@ -96,11 +106,14 @@ public class Main{
         }
     }
     
-     public static void displayAllProjects() {
+    /**
+     * Retrieve all Projects and saves them into List type Project
+     */
+    public static void displayAllProjects() {
         System.out.println("Project List");
         List<Project> pro = projectDB.getProject();
         if (pro == null) {
-            System.out.println("Error! Unable to get project.\n");
+            System.err.println("Error! Unable to get project.\n");
         } else {
             System.out.println(pro.size());
             Project p;
