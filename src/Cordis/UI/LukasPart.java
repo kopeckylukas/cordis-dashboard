@@ -95,7 +95,7 @@ public class LukasPart extends javax.swing.JFrame {
                 + "AND pa.proID = p.proID";
         
         //Creates list of Lists 
-        List<List<String>> list = connect.readDatabaseWithNames(query);
+        List<List<String>> list = connect.readDatabase(query, true);
         
         //Creates Array of Columns names
         String [] nameOfCompoundCategories = new String [list.get(1).size()];

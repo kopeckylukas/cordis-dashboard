@@ -34,7 +34,7 @@ public class GetEntities {
         try {
             String dbLocation = "jdbc:sqlite:Cordis2020.sqlite3";
             connection = DriverManager.getConnection(dbLocation);
-            System.out.println("[DatabaseConnectivity] ... Database Corids2020.sqlite3: CONNECTED!");
+            System.out.println("[GetEntities] ... Database Corids2020.sqlite3: CONNECTED!");
         } catch (SQLException e) {
             System.err.println(e);
         }        

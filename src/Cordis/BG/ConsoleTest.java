@@ -26,11 +26,36 @@ public class ConsoleTest implements Runnable {
     public void run() {
         System.out.println("[ConsoleTest] ... Test is running");
         
+        updateUser();
         databaseConnectivityTest_SELECT();
-        //displayAllProjects();
-        //displayAllOrganisations();
+        displayAllProjects();
+        displayAllOrganisations();
         
         System.out.println("[ConsoleTest] ... Finished");
+    }
+    
+    public static void updateUser(){
+        System.out.println("[updateUser] ... run query");
+        
+        DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
+        
+        String name = "Bruce";
+        String surname = "Wayne";
+        String userEmail = "bat_man.com";
+        String userPassword = "qwerty";
+        
+        String SQL = "insert into Users (userForename, userSurname, useEmail, userPassword) "
+                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' );";
+        
+        Boolean confirm = databaseConnectivity.updateDatabase(SQL);
+        
+        if(confirm == true)
+            System.out.println("[updateUser] ... updated");
+        else
+            System.err.println("[updateUser] ... SQLiError");
+        
+        
+        
     }
     
     /**
@@ -47,7 +72,7 @@ public class ConsoleTest implements Runnable {
                 + "ON o.orgID = pa.orgID "
                 + "AND pa.proID = p.proID";
         
-        List<List<String>> list = databaseConnectivity.readDatabase(query);
+        List<List<String>> list = databaseConnectivity.readDatabase(query, true);
         
         
         
