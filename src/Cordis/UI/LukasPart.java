@@ -5,13 +5,12 @@
  */
 package Cordis.UI;
 
-import Cordis.DB.getDataByObject;
+import Cordis.DB.DatabaseConnectivity;
+import Cordis.DB.GetEntities;
 import Cordis.Entities.Organisation;
 import Cordis.Entities.Project;
-import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import java.sql.Date;
 
 /**
  *
@@ -19,7 +18,8 @@ import java.sql.Date;
  */
 public class LukasPart extends javax.swing.JFrame {
 
-     private static getDataByObject projectDB = new getDataByObject();
+     private static GetEntities projectDB = new GetEntities();
+     private static DatabaseConnectivity connect = new DatabaseConnectivity();
   
     /**
      * Constructs JFrame
@@ -28,23 +28,43 @@ public class LukasPart extends javax.swing.JFrame {
         //jLabel3.setText("Organisations");
         initComponents();
         
-        //Code Below Displays Table with Organisations
-        List<Organisation> org = projectDB.getOrganisation("orgCountry LIKE 'cz'");
+    //DISPLAY PROJECT TABLE
+        //Retrieves List of Projects
+        List<Organisation> org = projectDB.getOrganisation("orgCountry LIKE 'uk'");
+        
+        //Names of Columns
         Object [] nameOfOrgCategories = { "ID", "Name", "Short Name", "Country"};
+        
+        //Creates 2D Arary to dispalay data
         Object[][] orgData = new String[org.size()][4];
+        
+        //Populates 2D Array to display 
         for (int r=0; r<org.size(); r++) {
             orgData[r][0]=org.get(r).getOrgID().toString();
             orgData[r][1]=org.get(r).getOrgName();
             orgData[r][2]=org.get(r).getOrgShortName();
             orgData[r][3]=org.get(r).getOrgCountry();
         }
+        
+        //Displays jTable
+        System.out.println("[JFrame] ... Displaying JTable, Organisation");
         DefaultTableModel orgModel = (DefaultTableModel) TestTable.getModel();
         orgModel.setDataVector(orgData,nameOfOrgCategories);  
         
-        //Code Below Displays Table with Projects
+        
+        
+    //DISPLAY PROJECT TABLE
+        //Retrieves List of Projects
         List<Project> pro = projectDB.getProject();
-        Object [] nameOfProCategories = { "ID", "RCN", "Acronym", "Title", "Status","Start", "End", "Total Cost", "EC Contribution", "TopicID", "CallID"};
+        
+        //Names of Columns
+        Object [] nameOfProCategories = { "ID", "RCN", "Acronym", "Title", "Status",
+            "Start", "End", "Total Cost", "EC Contribution", "TopicID", "CallID"};
+        
+        //Creates 2D Array to display data 
         Object[][] proData = new String[pro.size()][11];
+        
+        //Populates 2D array by data in List Type Project
         for (int r=0; r<pro.size(); r++) {
             proData[r][0]=pro.get(r).getProID().toString();
             proData[r][1]=pro.get(r).getProRCN().toString();
@@ -58,16 +78,43 @@ public class LukasPart extends javax.swing.JFrame {
             proData[r][9]=pro.get(r).getTopicID();
             proData[r][10]=pro.get(r).getCallID();   
         }
+        
+        //Displays jTable
+        System.out.println("[JFrame] ... Displaying JTable, Project");
         DefaultTableModel proModel = (DefaultTableModel) ProjectTable.getModel();
         proModel.setDataVector(proData,nameOfProCategories); 
         
         
         
+    //DISPLAY COMPOUND TABLE
+        //Query to be executed
+        String query = "SELECT p.proTitle AS Project, o.orgName AS Organisation, pa.role, pa.orgEcContribution "
+                + "FROM Organisation o "
+                + "JOIN Participation pa JOIN Project p  "
+                + "ON o.orgID = pa.orgID "
+                + "AND pa.proID = p.proID";
         
+        //Creates list of Lists 
+        List<List<String>> list = connect.readDatabaseWithNames(query);
         
+        //Creates Array of Columns names
+        String [] nameOfCompoundCategories = new String [list.get(1).size()];
+        //Populating Array Of Columns Names 
+        for(int n = 0; n<list.get(0).size(); n++){
+            nameOfCompoundCategories [n] = list.get(0).get(n);
+        }
+        
+        Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+        for(int l = 1; l<list.size(); l++){
+            for(int r = 0; r<list.get(l).size(); r++){
+                compoundData [l-1] [r] = list.get(l).get(r);
+            }
+            
+        } 
+            
+        System.out.println("[JFrame] ... Displaying JTable, List of Columns");
         DefaultTableModel compoundModel = (DefaultTableModel) CompoundTable.getModel();
-        compoundModel.setDataVector(proData,nameOfProCategories); 
-        
+        compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
     }
 
     /**

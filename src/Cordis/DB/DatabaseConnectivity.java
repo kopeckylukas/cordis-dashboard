@@ -32,9 +32,9 @@ public class DatabaseConnectivity {
     public DatabaseConnectivity(){
         try {
             
-            String dbLocation = "jdbc:sqlite:Cordis2020.sqlite3";
-            connection = DriverManager.getConnection(dbLocation);
-            System.out.println("[Connection] ... Database Connected");
+            String database = "jdbc:sqlite:Cordis2020.sqlite3";
+            connection = DriverManager.getConnection(database);
+            System.out.println("[DatabaseConnectivity] ... Database Corids2020.sqlite3: CONNECTED!");
         }catch (SQLException e) {
             
             System.err.println(e);
@@ -46,10 +46,10 @@ public class DatabaseConnectivity {
      * Crates connection to any local database
      * @param dbLocation local host location of a SQLite database 
      */
-    public DatabaseConnectivity(String dbLocation){
+    public DatabaseConnectivity(String database){
         try {
-            connection = DriverManager.getConnection(dbLocation);
-            System.out.println("[Connection] ... Database Connected");
+            connection = DriverManager.getConnection(database);
+            System.out.println("[DatabaseConnectivity] ... Database "+database+": CONNECTED!");
         }catch (SQLException e) {
             
             System.err.println(e);
@@ -68,7 +68,7 @@ public class DatabaseConnectivity {
         try (PreparedStatement st = connection.prepareStatement(SQLi);
             ResultSet resultRow = st.executeQuery()) {
             
-            System.out.println("[Query] ... Query executed");
+            System.out.println("[readDatabase] ... Query executed");
             
             //Creates List of List to be returned
             List<List<String>> listOfRows = new ArrayList();
@@ -96,6 +96,7 @@ public class DatabaseConnectivity {
             }
             
             //Closes result set retireved from the database
+            System.out.println("[readDatabase] ... Connection Closed");
             resultRow.close();
             
             //Returns retrieved data in form of 2D ArrayList
@@ -121,7 +122,7 @@ public class DatabaseConnectivity {
         //Try: Connect database and execute query
         try (PreparedStatement st = connection.prepareStatement(SQLi);
             ResultSet resultRow = st.executeQuery()) {
-            System.out.println("[Query] ... Query executed");
+            System.out.println("[readDatabaseWithNames] ... Query executed");
             
             //Creates List of List to be returned
             List<List<String>> listOfRows = new ArrayList();
@@ -161,6 +162,7 @@ public class DatabaseConnectivity {
             }
             
             //Closes result set retireved from the database
+            System.out.println("[readDatabaseWithNames] ... Connection Closed");
             resultRow.close();
             
             //Returns retrieved data in form of 2D ArrayList
