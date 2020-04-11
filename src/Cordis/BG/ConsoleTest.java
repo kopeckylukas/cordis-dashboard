@@ -26,10 +26,10 @@ public class ConsoleTest implements Runnable {
     public void run() {
         System.out.println("[ConsoleTest] ... Test is running");
         
-        updateUser();
+        //updateUser();
         databaseConnectivityTest_SELECT();
-        displayAllProjects();
-        displayAllOrganisations();
+        //displayAllProjects();
+        //displayAllOrganisations();
         
         System.out.println("[ConsoleTest] ... Finished");
     }
