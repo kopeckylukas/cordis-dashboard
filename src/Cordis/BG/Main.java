@@ -37,6 +37,8 @@ public class Main{
      */
     public void execute(){
         System.out.println("[Execute] ... Start");
+        
+        System.out.println("Hello");
        
         //Display jFrame
 //        LukasPart lukas = new LukasPart();
