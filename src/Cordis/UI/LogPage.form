@@ -50,7 +50,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="455" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="611" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="signInLabel" min="-2" max="-2" attributes="0"/>
@@ -60,14 +60,10 @@
                           <Component id="signUpLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="logoLabel" min="-2" pref="150" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="PasswordT" alignment="1" max="32767" attributes="0"/>
-                              <Component id="UsernameT" alignment="1" max="32767" attributes="0"/>
-                              <Component id="submit" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="PasswordT" alignment="1" max="32767" attributes="0"/>
+                          <Component id="UsernameT" alignment="1" max="32767" attributes="0"/>
+                          <Component id="submit" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="743" max="32767" attributes="0"/>
@@ -78,20 +74,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="logoLabel" alignment="1" min="-2" pref="100" max="-2" attributes="0"/>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="signInLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="signUpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="UsernameT" min="-2" pref="47" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="PasswordT" min="-2" pref="47" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="signInLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="signUpLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="UsernameT" min="-2" pref="47" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="PasswordT" min="-2" pref="47" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="submit" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="437" max="32767" attributes="0"/>
@@ -152,12 +143,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="or"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="logoLabel">
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="//set icon to jlabel&#xa;logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/image/DashboardLogo.png&quot;)));"/>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel()"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="submit">
           <Properties>

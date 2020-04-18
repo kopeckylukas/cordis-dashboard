@@ -32,7 +32,6 @@ public class UserActivity extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        logoLabel = new javax.swing.JLabel();
         adminSign = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         usernameField = new javax.swing.JTextField();
@@ -48,8 +47,6 @@ public class UserActivity extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-
-        logoLabel.setBackground(new java.awt.Color(0, 0, 0));
 
         adminSign.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         adminSign.setForeground(new java.awt.Color(255, 153, 102));
@@ -140,44 +137,39 @@ public class UserActivity extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(adminSign)
-                        .addGap(439, 439, 439)
-                        .addComponent(userActivitySign)
-                        .addGap(0, 512, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                                .addGap(64, 64, 64)
+                                .addComponent(adminSign)
+                                .addGap(439, 439, 439)
+                                .addComponent(userActivitySign))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(dashboardTab)
-                                .addGap(18, 18, 18)
-                                .addComponent(userActSign)
-                                .addGap(18, 18, 18)
-                                .addComponent(userDetSign)
-                                .addGap(18, 18, 18)
-                                .addComponent(logOutSign)
-                                .addGap(638, 638, 638)
-                                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(17, 17, 17)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(dashboardTab)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(userActSign)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(userDetSign)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(logOutSign)
+                                        .addGap(638, 638, 638)
+                                        .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 67, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(adminSign)
-                            .addComponent(userActivitySign))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(adminSign)
+                    .addComponent(userActivitySign))
+                .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -192,8 +184,6 @@ public class UserActivity extends javax.swing.JFrame {
                 .addContainerGap(71, Short.MAX_VALUE))
         );
 
-        //set icon to jlabel
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/DashboardLogom.png")));
         Border label_border = BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 102));
         userActivitySign.setBorder(label_border);
 
@@ -318,7 +308,6 @@ public class UserActivity extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logOutSign;
-    private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel userActSign;
     private javax.swing.JLabel userActivitySign;
     private javax.swing.JLabel userDetSign;

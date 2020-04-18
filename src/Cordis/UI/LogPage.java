@@ -41,7 +41,6 @@ public class LogPage extends javax.swing.JFrame {
         PasswordT = new javax.swing.JPasswordField();
         signInLabel = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        logoLabel = new javax.swing.JLabel();
         submit = new javax.swing.JButton();
         signUpLabel = new javax.swing.JLabel();
 
@@ -113,7 +112,7 @@ public class LogPage extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(455, 455, 455)
+                .addGap(611, 611, 611)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(signInLabel)
@@ -122,37 +121,28 @@ public class LogPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(signUpLabel)
                         .addGap(14, 14, 14))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(PasswordT, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(UsernameT, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(PasswordT, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(UsernameT, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(submit, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(743, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(163, 163, 163)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(signInLabel)
-                            .addComponent(jLabel2)
-                            .addComponent(signUpLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(UsernameT, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(PasswordT, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(signInLabel)
+                    .addComponent(jLabel2)
+                    .addComponent(signUpLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UsernameT, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(PasswordT, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(submit)
                 .addContainerGap(437, Short.MAX_VALUE))
         );
-
-        //set icon to jlabel
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/DashboardLogo.png")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -377,7 +367,6 @@ public class LogPage extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameT;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel signInLabel;
     private javax.swing.JLabel signUpLabel;
     private javax.swing.JButton submit;

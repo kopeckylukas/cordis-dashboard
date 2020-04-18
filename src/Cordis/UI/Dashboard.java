@@ -32,7 +32,6 @@ public class Dashboard extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        logoLabel = new javax.swing.JLabel();
         adminSign = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         usernameField = new javax.swing.JTextField();
@@ -54,8 +53,6 @@ public class Dashboard extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
-
-        logoLabel.setBackground(new java.awt.Color(0, 0, 0));
 
         adminSign.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         adminSign.setForeground(new java.awt.Color(255, 153, 102));
@@ -230,9 +227,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(64, 64, 64)
                                 .addComponent(adminSign))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
@@ -258,12 +253,9 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(logoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(adminSign)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap()
+                .addComponent(adminSign)
+                .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -282,9 +274,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
-
-        //set icon to jlabel
-        logoLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/DashboardLogom.png")));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -374,7 +363,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTable jTable1;
     private javax.swing.JLabel logOutSign;
-    private javax.swing.JLabel logoLabel;
     private javax.swing.JLabel organisation;
     private javax.swing.JComboBox projectSpinner;
     private javax.swing.JLabel topics;
