@@ -12,12 +12,16 @@ import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
+import java.sql.Date;
+import java.util.Calendar;
 
 /**
  *
  * @author hossa
  */
 public class RegPage extends javax.swing.JFrame {
+    
+    
 
     /**
      * Creates new form RegPage
@@ -350,58 +354,58 @@ public class RegPage extends javax.swing.JFrame {
                         "Passwords are not matching", JOptionPane.WARNING_MESSAGE);       
             }else{
                 
+                //Creating Unix Timestamp
+                long unixTime = System.currentTimeMillis();
+                java.sql.Timestamp regDate = new java.sql.Timestamp(unixTime);
                 
                 //Conecting Database and running qurey 
                 DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
 
-                String SQL = "insert into Users (userForename, userSurname, userEmail, userPassword) "
-                            + "values('"+userForename+"' ,'"+userSurname+"' ,'"+userEmail+"' ,'"+userPassword+"' );";
+                String SQL = "insert into Users (userForename, userSurname, userEmail, userPassword, userRegDate) "
+                            + "values('"+userForename+"' ,'"+userSurname+"' ,'"+userEmail+"' ,'"+userPassword+"' ,'"+regDate+"');";
 
                 Integer ErrNo = databaseConnectivity.updateDatabase(SQL);
 
-                if(ErrNo == 0) {
-                    System.out.println("[RegPage] ... User "+userForename+" "+ userSurname +""
-                            + " has been registered. Your username is "+ userEmail);
-                    
-                    String message = "User "+userForename+" "+ userSurname + " has been registered. Your username is "+ userEmail+"\n"
-                            + "Continue to Sign In";
-                    JOptionPane.showMessageDialog(null, message); 
-                    
-                    LogPage log = new LogPage();
-                    log.setVisible(true);
-                    log.pack();
-                    log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                    this.dispose();
-                        
-                    
-                } else if(ErrNo == 19) {
-                    System.out.println("[RegPage] ... Email Address "+ userEmail +" is already in use. "
-                            + "If you have already an account click Sign In, or use differnt email address.");
-                    
-                    String message = "Email Address "+ userEmail +" is already in use. If you have already an account, Sign In or use differnt email address.";
-                    JOptionPane.showMessageDialog(null, message,"INVALID EMAIL ADDRESS", JOptionPane.WARNING_MESSAGE); 
-                
-                    
-                } else if (ErrNo == 1){
-                    System.out.println("[RegPage] ... Invalid Character in some fields");
-                    
-                    String message = "Invalid characters in some fields. Please Make sure you are not using characters as \' or  \\ ";
-                    JOptionPane.showMessageDialog(null, message,"INVALID INPUT", JOptionPane.WARNING_MESSAGE); 
-                
-                    
-                }else {
-                    System.err.println("[RegPage] ... SQLError code: "+ErrNo);
-                    
-                    String message = "SQL ERROR! Error No: "+ ErrNo+". Contact your IT Support!";
-                    JOptionPane.showMessageDialog(null, message,"SQL ERROR", JOptionPane.ERROR_MESSAGE); 
+                switch (ErrNo) {
+                    case 0:
+                        {
+                            System.out.println("[RegPage] ... User "+userForename+" "+ userSurname +""
+                                    + " has been registered. Your username is "+ userEmail);
+                            String message = "User "+userForename+" "+ userSurname + " has been registered. Your username is "+ userEmail+"\n"
+                                    + "Continue to Sign In";
+                            JOptionPane.showMessageDialog(null, message);
+                            LogPage log = new LogPage(userEmail, userPassword);
+                            log.setVisible(true);
+                            log.pack();
+                            log.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                            this.dispose();
+                            break;
+                        }
+                    case 19:
+                        {
+                            System.out.println("[RegPage] ... Email Address "+ userEmail +" is already in use. "
+                                    + "If you have already an account click Sign In, or use differnt email address.");
+                            String message = "Email Address "+ userEmail +" is already in use. If you have already an account, Sign In or use differnt email address.";
+                            JOptionPane.showMessageDialog(null, message,"INVALID EMAIL ADDRESS", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
+                    case 1:
+                        {
+                            System.out.println("[RegPage] ... Invalid Character in some fields");
+                            String message = "Invalid characters in some fields. Please Make sure you are not using characters as \' or  \\ ";
+                            JOptionPane.showMessageDialog(null, message,"INVALID INPUT", JOptionPane.WARNING_MESSAGE);
+                            break;
+                        }
+                    default:
+                        {
+                            System.err.println("[RegPage] ... SQLError code: "+ErrNo);
+                            String message = "SQL ERROR! Error No: "+ ErrNo+". Contact your IT Support!";
+                            JOptionPane.showMessageDialog(null, message,"SQL ERROR", JOptionPane.ERROR_MESSAGE);
+                            break;
+                        }
                 }
-            }
-            
-        }
-        
-        
-        
-        
+            }    
+        }      
     }//GEN-LAST:event_registerButtonActionPerformed
 
     /**

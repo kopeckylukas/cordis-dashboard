@@ -8,6 +8,7 @@ package Cordis.BG;
  * and open the template in the editor.
  */
 
+import Cordis.Entities.User;
 import Cordis.UI.LogPage;
 import Cordis.UI.LukasPart;
 
@@ -17,6 +18,7 @@ import Cordis.UI.LukasPart;
  * @author lukaskopecky
  */
 public class Main{
+    
     
    
     public static void main (String[] args){
@@ -38,7 +40,9 @@ public class Main{
     public void execute(){
         System.out.println("[Execute] ... Start");
         
-        System.out.println("Hello");
+        
+        
+        
        
         //Display jFrame
 //        LukasPart lukas = new LukasPart();
@@ -50,4 +54,6 @@ public class Main{
 
         System.out.println("[Execute] ... Execution Finished");
     }
+
+    
 }

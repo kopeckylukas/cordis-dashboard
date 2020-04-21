@@ -5,6 +5,8 @@
  */
 package Cordis.UI;
 
+import Cordis.BG.UserLog;
+import Cordis.Entities.User;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
@@ -14,12 +16,21 @@ import javax.swing.border.Border;
  * @author hossa
  */
 public class Dashboard extends javax.swing.JFrame {
+    
+    User localUser;
 
     /**
      * Creates new form Dashboard
      */
     public Dashboard() {
         initComponents();
+        this.localUser = null;
+    }
+
+    Dashboard(User localUser) {
+        initComponents();
+        this.localUser = localUser;
+        usernameField.setText(localUser.getName()+" "+localUser.getSurname());
     }
 
     /**
@@ -295,6 +306,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void logOutSignMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMouseClicked
         // TODO add your handling code here:
+        UserLog log = new UserLog(localUser);
+        log.logOut();
+        
         LogPage logp = new LogPage();
         logp.setVisible(true);
         logp.pack();
