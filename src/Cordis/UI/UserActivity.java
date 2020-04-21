@@ -5,21 +5,129 @@
  */
 package Cordis.UI;
 
+import Cordis.BG.UserLog;
+import Cordis.DB.DatabaseConnectivity;
+import Cordis.Entities.User;
+import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author hossa
  */
 public class UserActivity extends javax.swing.JFrame {
+    
+    User localUser;
+    private static DatabaseConnectivity connect = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
 
     /**
      * Creates new form UserActivity
      */
     public UserActivity() {
         initComponents();
+        
+        localUser = null;
+        
+        
+        //DISPLAY COMPOUND TABLE
+        //Query to be executed
+        String query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
+                + "u.userType as \"User Type\", a.logTime as Time, a.logType as \"Log Type\" \n" 
+                + "FROM ActivityLog a JOIN Users u "
+                + "ON a.userID = u.userID;";
+        
+        //Creates list of Lists 
+        List<List<String>> list = connect.readDatabase(query, true);
+        
+        //Creates Array of Columns names
+        String [] nameOfCompoundCategories = new String [list.get(1).size()];
+        //Populating Array Of Columns Names 
+        for(int n = 0; n<list.get(0).size(); n++){
+            nameOfCompoundCategories [n] = list.get(0).get(n);
+        }
+        
+        Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+        for(int l = 1; l<list.size(); l++){
+            for(int r = 0; r<list.get(l).size(); r++){
+                if(r == 3){
+                    String type = list.get(l).get(r);
+                    if(type.equals("A"))
+                        compoundData [l-1] [r] = "Administrator";
+                    else
+                        compoundData [l-1] [r] = "User";
+                    
+                }else{
+                    compoundData [l-1] [r] = list.get(l).get(r);
+                }
+                
+                
+            }
+            
+        } 
+            
+        System.out.println("[JFrame] ... Displaying JTable, List of Columns");
+        DefaultTableModel compoundModel = (DefaultTableModel) userTable.getModel();
+        compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
+    }
+    
+    
+    
+    /**
+     * Constructor in use if accessed form program, displays data
+     * @param localUser user displaying the page 
+     */
+    UserActivity(User localUser) {
+        initComponents();
+        this.localUser = localUser;
+        usernameField.setText(localUser.getName()+" "+localUser.getSurname());
+        
+        
+        
+        //DISPLAY COMPOUND TABLE
+        //Query to be executed
+        String query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
+                + "u.userType as \"User Type\", a.logTime as Time, a.logType as \"Log Type\" \n" 
+                + "FROM ActivityLog a JOIN Users u "
+                + "ON a.userID = u.userID;";
+        
+        //Creates list of Lists 
+        List<List<String>> list = connect.readDatabase(query, true);
+        
+        //Creates Array of Columns names
+        String [] nameOfCompoundCategories = new String [list.get(1).size()];
+        //Populating Array Of Columns Names 
+        for(int n = 0; n<list.get(0).size(); n++){
+            nameOfCompoundCategories [n] = list.get(0).get(n);
+        }
+        
+        Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+        for(int l = 1; l<list.size(); l++){
+            for(int r = 0; r<list.get(l).size(); r++){
+                if(r == 3){
+                    String type = list.get(l).get(r);
+                    if(type.equals("A"))
+                        compoundData [l-1] [r] = "Administrator";
+                    else
+                        compoundData [l-1] [r] = "User";
+                    
+                }else{
+                    compoundData [l-1] [r] = list.get(l).get(r);
+                }
+                
+                
+            }
+            
+        } 
+            
+        System.out.println("[JFrame] ... Displaying JTable, List of Columns");
+        DefaultTableModel compoundModel = (DefaultTableModel) userTable.getModel();
+        compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
+        
+        
+        
     }
 
     /**
@@ -145,21 +253,21 @@ public class UserActivity extends javax.swing.JFrame {
                                 .addComponent(userActivitySign))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(17, 17, 17)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(dashboardTab)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(userActSign)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(userDetSign)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(logOutSign)
-                                        .addGap(638, 638, 638)
-                                        .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(0, 67, Short.MAX_VALUE)))
+                                .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(dashboardTab)
+                                .addGap(18, 18, 18)
+                                .addComponent(userActSign)
+                                .addGap(18, 18, 18)
+                                .addComponent(userDetSign)
+                                .addGap(18, 18, 18)
+                                .addComponent(logOutSign)
+                                .addGap(638, 638, 638)
+                                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(17, 17, 17)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 12, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -218,7 +326,7 @@ public class UserActivity extends javax.swing.JFrame {
 
     private void userDetSignMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userDetSignMouseClicked
         // TODO add your handling code here:
-        UserDetails userD = new UserDetails();
+        UserDetails userD = new UserDetails(localUser);
         userD.setVisible(true);
         userD.pack();
         userD.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -227,6 +335,10 @@ public class UserActivity extends javax.swing.JFrame {
 
     private void logOutSignMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMouseClicked
         // TODO add your handling code here:
+        
+        UserLog log = new UserLog(localUser);
+        log.logOut();
+        
         LogPage logp = new LogPage();
         logp.setVisible(true);
         logp.pack();
@@ -258,7 +370,9 @@ public class UserActivity extends javax.swing.JFrame {
 
     private void dashboardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMouseClicked
         // TODO add your handling code here:
-        Dashboard das = new Dashboard();
+        
+        
+        Dashboard das = new Dashboard(localUser);
         das.setVisible(true);
         das.pack();
         das.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
