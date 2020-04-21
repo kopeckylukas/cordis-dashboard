@@ -5,25 +5,44 @@
  */
 package Cordis.UI;
 
+import Cordis.BG.UserLog;
 import Cordis.DB.DatabaseConnectivity;
+import Cordis.Entities.User;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.border.Border;
+import java.sql.Date;
 
 /**
  *
  * @author hossa
  */
 public class LogPage extends javax.swing.JFrame {
+    
+    private User localUser;
+    
+    DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
+    
+     public LogPage(User user) {
+        initComponents();
+        System.out.println("[LogPage] ... isConnected");
+        localUser = user;
+    }
 
-    /**
-     * Creates new form LogPage
-     */
     public LogPage() {
         initComponents();
         System.out.println("[LogPage] ... isConnected");
+        localUser = null;
+    }
+    
+    public LogPage(String email, String password){
+        initComponents();
+        System.out.println("[LogPage] ... isConnected");
+        localUser = null;
+        UsernameT.setText(email);
+        PasswordT.setText(password);
     }
 
     /**
@@ -233,15 +252,17 @@ public class LogPage extends javax.swing.JFrame {
             
             System.out.println("[LogPage] ... Connecting User Database");
             
-            DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
             
-            String SQL = "SELECT userType, userForename, userSurname, userEmail, userPassword "
+            
+            String SQL = "SELECT userType, userForename, userSurname, userEmail, userPassword, userID "
                         +"FROM Users "
                         +"WHERE userEmail LIKE '"+username+"'";
             
             List<List<String>> list = databaseConnectivity.readDatabase(SQL, false);
+ 
             
-            if(list.size() == 0){
+            
+            if(list.isEmpty()){
                 
                 System.out.println("[LogPage] ... Username not found. Please Enter Valid Username or Sign Up");
                 
@@ -253,14 +274,20 @@ public class LogPage extends javax.swing.JFrame {
                 String userSurname = list.get(0).get(2);
                 String userEmail = list.get(0).get(3);
                 String userPassword = list.get(0).get(4);
+                Integer userNo = Integer.parseInt(list.get(0).get(5));
+                
              
                 if(userPassword.equals(password) &&  userType.equals("U")){
                     System.out.println("[LogPage] ... Welcome User "+userForename+" "+userSurname);
                     
                     //String Message = "Welcome User "+userForename+" "+userSurname;
                     //JOptionPane.showMessageDialog(null, Message);
+                    localUser = new User (userNo, userType, userForename, userSurname);
                     
-                    Dashboard dash = new Dashboard();
+                    UserLog log = new UserLog(localUser);
+                    log.logIn();
+                    
+                    Dashboard dash = new Dashboard(localUser);
                     dash.setVisible(true);
                     dash.pack();
                     dash.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -271,11 +298,18 @@ public class LogPage extends javax.swing.JFrame {
                 
                     JOptionPane.showMessageDialog(null,  "Welcome Administrator");
                     
-                    UserActivity ua = new UserActivity();
+                    localUser = new User (userNo, userType, userForename, userSurname);
+                    
+                    UserLog log = new UserLog(localUser);
+                    log.logIn();
+                    
+                    UserActivity ua = new UserActivity(localUser);
                     ua.setVisible(true);
                     ua.pack();
                     ua.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                     this.dispose();
+                    
+                    
                     
                 }else{
                 

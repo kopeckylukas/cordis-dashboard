@@ -5,6 +5,8 @@
  */
 package Cordis.UI;
 
+import Cordis.BG.UserLog;
+import Cordis.Entities.User;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
 import javax.swing.border.Border;
@@ -15,11 +17,21 @@ import javax.swing.border.Border;
  */
 public class UserDetails extends javax.swing.JFrame {
 
+    User localUser;
+    
     /**
      * Creates new form UserDetails
      */
-    public UserDetails() {
+    
+    public UserDetails(){
         initComponents();
+        localUser=null;
+    }
+    
+    public UserDetails(User localUser) {
+        initComponents();
+        this.localUser = localUser;
+        usernameField.setText(localUser.getName()+" "+localUser.getSurname());
     }
 
     /**
@@ -215,6 +227,11 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void logOutSignMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMouseClicked
         // TODO add your handling code here:
+        
+        UserLog log = new UserLog(localUser);
+        log.logOut();
+        
+        
         LogPage logp = new LogPage();
         logp.setVisible(true);
         logp.pack();
@@ -246,7 +263,7 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void userActSignMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userActSignMouseClicked
         // TODO add your handling code here:
-        UserActivity userAct = new UserActivity();
+        UserActivity userAct = new UserActivity(localUser);
         userAct.setVisible(true);
         userAct.pack();
         userAct.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -266,7 +283,7 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void dashboardTabMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMouseClicked
         // TODO add your handling code here:
-        Dashboard das = new Dashboard();
+        Dashboard das = new Dashboard(localUser);
         das.setVisible(true);
         das.pack();
         das.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

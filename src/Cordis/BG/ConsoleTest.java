@@ -11,6 +11,9 @@ import Cordis.DB.DatabaseConnectivity;
 import Cordis.DB.GetEntities;
 import Cordis.Entities.Organisation;
 import Cordis.Entities.Project;
+import Cordis.Entities.User;
+import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -19,14 +22,18 @@ import java.util.List;
  */
 public class ConsoleTest implements Runnable {
     
+
+    
     /**
      * Run Thread
      */
     @Override
     public void run() {
         System.out.println("[ConsoleTest] ... Test is running");
+       
         
-        //updateUser();
+        
+        //registerDefaultUsers();
         //databaseConnectivityTest_SELECT();
         //displayAllProjects();
         //displayAllOrganisations();
@@ -34,18 +41,34 @@ public class ConsoleTest implements Runnable {
         System.out.println("[ConsoleTest] ... Finished");
     }
     
-    public static void updateUser() {
+    
+    
+    public static void registerDefaultUsers() {
         System.out.println("[updateUser] ... run query");
         
+//        long time = System.currentTimeMillis();
+//        java.sql.Date regDate = new java.sql.Date(time);
+
+
+        long time = System.currentTimeMillis();
+        java.sql.Timestamp regDate = new java.sql.Timestamp(time);
+        
+        //Date regDate = new Date();
+        
         DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
+        
+        
         
         String name = "Bruce";
         String surname = "Wayne";
         String userEmail = "bat@man.com";
-        String userPassword = "qwerty";
+        String userPassword = "1234";
+        String userType = "A";
+        String userQ = "Where were you Born";
+        String userA = "Gottham";
         
-        String SQL = "insert into Users (userForename, userSurname, userEmail, userPassword) "
-                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' );";
+        String SQL = "insert into Users (userForename, userSurname, userEmail, userPassword, userType, userQuestion, userAnswer, userRegDate) "
+                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
         
         Integer confirm = databaseConnectivity.updateDatabase(SQL);
         
@@ -53,6 +76,27 @@ public class ConsoleTest implements Runnable {
             System.out.println("[updateUser] ... updated");
         else
             System.err.println("[updateUser] ... SQLiError");
+        
+        
+        
+        name = "John";
+        surname = "Smith";
+        userEmail = "john@smith.com";
+        userPassword = "qwerty";
+        userType = "U";
+        userQ = "Where were you Born";
+        userA = "London";
+        
+        SQL = "insert into Users (userForename, userSurname, userEmail, userPassword, userType, userQuestion, userAnswer, userRegDate) "
+                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
+        
+        confirm = databaseConnectivity.updateDatabase(SQL);
+        
+        if(confirm == 0)
+            System.out.println("[updateUser] ... updated");
+        else
+            System.err.println("[updateUser] ... SQLiError");
+        
         }
     
     /**
