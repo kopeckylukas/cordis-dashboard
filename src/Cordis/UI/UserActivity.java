@@ -11,6 +11,7 @@ import Cordis.Entities.User;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
@@ -151,6 +152,9 @@ public class UserActivity extends javax.swing.JFrame {
         logOutSign = new javax.swing.JLabel();
         dashboardTab = new javax.swing.JLabel();
         filter = new javax.swing.JComboBox();
+        searchUsernameField = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        surnameSearchLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -237,12 +241,39 @@ public class UserActivity extends javax.swing.JFrame {
 
         filter.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        searchUsernameField.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        searchUsernameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        searchUsernameField.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                textChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        searchUsernameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                UserActivity.this.keyReleased(evt);
+            }
+        });
+
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 153, 102));
+        jButton1.setText("RESET");
+
+        surnameSearchLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        surnameSearchLabel1.setForeground(new java.awt.Color(204, 204, 204));
+        surnameSearchLabel1.setText("SEARCH");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1))
                     .addComponent(jSeparator1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -263,11 +294,16 @@ public class UserActivity extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(logOutSign)
                                 .addGap(638, 638, 638)
-                                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1333, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
+                                .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 50, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(surnameSearchLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(searchUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)
+                        .addGap(8, 8, 8)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -288,8 +324,13 @@ public class UserActivity extends javax.swing.JFrame {
                     .addComponent(dashboardTab, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(filter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchUsernameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(surnameSearchLabel1))
+                .addGap(13, 13, 13))
         );
 
         Border label_border = BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 153, 102));
@@ -379,6 +420,58 @@ public class UserActivity extends javax.swing.JFrame {
         this.dispose(); 
     }//GEN-LAST:event_dashboardTabMouseClicked
 
+    private void textChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_textChanged
+        
+       
+    }//GEN-LAST:event_textChanged
+
+    private void keyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyReleased
+        // TODO add your handling code here:
+        String query;
+       String searchFor = searchUsernameField.getText();
+        
+       query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
+                + "u.userType as \"User Type\", a.logTime as Time, a.logType as \"Log Type\" \n" 
+                + "FROM ActivityLog a JOIN Users u "
+                + "ON a.userID = u.userID "
+                + "AND (u.userEmail LIKE '%"+searchFor+"%'"
+                + "OR u.userForename LIKE '%"+searchFor+"%'"
+                + "OR u.userSurname LIKE '%"+searchFor+"%');";
+        
+       
+       List<List<String>> list = connect.readDatabase(query, true);
+       
+       //Creates Array of Columns names
+            String [] nameOfCompoundCategories = new String [list.get(1).size()];
+            //Populating Array Of Columns Names 
+            for(int n = 0; n<list.get(0).size(); n++){
+                nameOfCompoundCategories [n] = list.get(0).get(n);
+            }
+
+            Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+            for(int l = 1; l<list.size(); l++){
+                for(int r = 0; r<list.get(l).size(); r++){
+                    if(r == 3){
+                        String type = list.get(l).get(r);
+                        if(type.equals("A"))
+                            compoundData [l-1] [r] = "Administrator";
+                        else
+                            compoundData [l-1] [r] = "User";
+
+                    }else{
+                        compoundData [l-1] [r] = list.get(l).get(r);
+                    }
+
+
+                }
+
+            } 
+
+            System.out.println("[JFrame] ... Displaying JTable, List of Columns");
+            DefaultTableModel compoundModel = (DefaultTableModel) userTable.getModel();
+            compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
+    }//GEN-LAST:event_keyReleased
+
     /**
      * @param args the command line arguments
      */
@@ -405,6 +498,9 @@ public class UserActivity extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(UserActivity.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -418,10 +514,13 @@ public class UserActivity extends javax.swing.JFrame {
     private javax.swing.JLabel adminSign;
     private javax.swing.JLabel dashboardTab;
     private javax.swing.JComboBox filter;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel logOutSign;
+    private javax.swing.JTextField searchUsernameField;
+    private javax.swing.JLabel surnameSearchLabel1;
     private javax.swing.JLabel userActSign;
     private javax.swing.JLabel userActivitySign;
     private javax.swing.JLabel userDetSign;
