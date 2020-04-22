@@ -11,6 +11,7 @@ import Cordis.Entities.User;
 import java.util.List;
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
@@ -242,9 +243,16 @@ public class UserActivity extends javax.swing.JFrame {
 
         searchUsernameField.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
         searchUsernameField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        searchUsernameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                searchUsernameFieldActionPerformed(evt);
+        searchUsernameField.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                textChanged(evt);
+            }
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+        });
+        searchUsernameField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                UserActivity.this.keyReleased(evt);
             }
         });
 
@@ -252,11 +260,6 @@ public class UserActivity extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 153, 102));
         jButton1.setText("RESET");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
 
         surnameSearchLabel1.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         surnameSearchLabel1.setForeground(new java.awt.Color(204, 204, 204));
@@ -417,68 +420,57 @@ public class UserActivity extends javax.swing.JFrame {
         this.dispose(); 
     }//GEN-LAST:event_dashboardTabMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void textChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_textChanged
+        
+       
+    }//GEN-LAST:event_textChanged
 
-    private void searchUsernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchUsernameFieldActionPerformed
+    private void keyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_keyReleased
         // TODO add your handling code here:
         String query;
-        String searchFor = searchUsernameField.getText();
+       String searchFor = searchUsernameField.getText();
         
-        if(searchFor.equals("")){
-            query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
-                + "u.userType as \"User Type\", a.logTime as Time, a.logType as \"Log Type\" \n" 
-                + "FROM ActivityLog a JOIN Users u "
-                + "ON a.userID = u.userID;";
-            
-        }else{
-        
-        
-        query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
+       query = "SELECT u.userEmail as Username,  u.userSurname as Surname, u.userForename as Forename, "
                 + "u.userType as \"User Type\", a.logTime as Time, a.logType as \"Log Type\" \n" 
                 + "FROM ActivityLog a JOIN Users u "
                 + "ON a.userID = u.userID "
-                + "AND u.userEmail LIKE '%"+searchFor+"%';";
-        }
+                + "AND (u.userEmail LIKE '%"+searchFor+"%'"
+                + "OR u.userForename LIKE '%"+searchFor+"%'"
+                + "OR u.userSurname LIKE '%"+searchFor+"%');";
         
-        //Creates list of Lists 
-        List<List<String>> list = connect.readDatabase(query, true);
-        
-        //Creates Array of Columns names
-        String [] nameOfCompoundCategories = new String [list.get(1).size()];
-        //Populating Array Of Columns Names 
-        for(int n = 0; n<list.get(0).size(); n++){
-            nameOfCompoundCategories [n] = list.get(0).get(n);
-        }
-        
-        Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
-        for(int l = 1; l<list.size(); l++){
-            for(int r = 0; r<list.get(l).size(); r++){
-                if(r == 3){
-                    String type = list.get(l).get(r);
-                    if(type.equals("A"))
-                        compoundData [l-1] [r] = "Administrator";
-                    else
-                        compoundData [l-1] [r] = "User";
-                    
-                }else{
-                    compoundData [l-1] [r] = list.get(l).get(r);
-                }
-                
-                
+       
+       List<List<String>> list = connect.readDatabase(query, true);
+       
+       //Creates Array of Columns names
+            String [] nameOfCompoundCategories = new String [list.get(1).size()];
+            //Populating Array Of Columns Names 
+            for(int n = 0; n<list.get(0).size(); n++){
+                nameOfCompoundCategories [n] = list.get(0).get(n);
             }
-            
-        } 
-            
-        System.out.println("[JFrame] ... Displaying JTable, List of Columns");
-        DefaultTableModel compoundModel = (DefaultTableModel) userTable.getModel();
-        compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
-        
-        
-        
-        
-    }//GEN-LAST:event_searchUsernameFieldActionPerformed
+
+            Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+            for(int l = 1; l<list.size(); l++){
+                for(int r = 0; r<list.get(l).size(); r++){
+                    if(r == 3){
+                        String type = list.get(l).get(r);
+                        if(type.equals("A"))
+                            compoundData [l-1] [r] = "Administrator";
+                        else
+                            compoundData [l-1] [r] = "User";
+
+                    }else{
+                        compoundData [l-1] [r] = list.get(l).get(r);
+                    }
+
+
+                }
+
+            } 
+
+            System.out.println("[JFrame] ... Displaying JTable, List of Columns");
+            DefaultTableModel compoundModel = (DefaultTableModel) userTable.getModel();
+            compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
+    }//GEN-LAST:event_keyReleased
 
     /**
      * @param args the command line arguments
