@@ -14,7 +14,7 @@ public class Encryption implements ENCRYPT {
     @Override
     public String Encrypt(String Decrypted) {
         
-        return Decrypted;
+        return Decrypted+"1";
     }
 
     @Override

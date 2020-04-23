@@ -11,9 +11,6 @@ import Cordis.DB.DatabaseConnectivity;
 import Cordis.DB.GetEntities;
 import Cordis.Entities.Organisation;
 import Cordis.Entities.Project;
-import Cordis.Entities.User;
-import java.util.Date;
-import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -21,6 +18,8 @@ import java.util.List;
  * @author lukaskopecky
  */
 public class ConsoleTest implements Runnable {
+    
+    
     
 
     
@@ -57,6 +56,7 @@ public class ConsoleTest implements Runnable {
         
         DatabaseConnectivity databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
         
+        Encryption encryption = new Encryption();
         
         
         String name = "Bruce";
@@ -66,9 +66,10 @@ public class ConsoleTest implements Runnable {
         String userType = "A";
         String userQ = "Where were you Born";
         String userA = "Gottham";
+        String encPWD = encryption.Encrypt(userPassword);
         
         String SQL = "insert into Users (userForename, userSurname, userEmail, userPassword, userType, userQuestion, userAnswer, userRegDate) "
-                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
+                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+encPWD+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
         
         Integer confirm = databaseConnectivity.updateDatabase(SQL);
         
@@ -86,9 +87,10 @@ public class ConsoleTest implements Runnable {
         userType = "U";
         userQ = "Where were you Born";
         userA = "London";
+        encPWD = encryption.Encrypt(userPassword);
         
         SQL = "insert into Users (userForename, userSurname, userEmail, userPassword, userType, userQuestion, userAnswer, userRegDate) "
-                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+userPassword+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
+                    + "values('"+name+"' ,'"+surname+"' ,'"+userEmail+"' ,'"+encPWD+"' ,'"+userType+"' ,'"+userQ+"' ,'"+userA+"' ,'"+regDate+"' );";
         
         confirm = databaseConnectivity.updateDatabase(SQL);
         
