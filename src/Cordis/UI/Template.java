@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author lukaskopecky
  */
-public class Dashboard extends javax.swing.JFrame {
+public class Template extends javax.swing.JFrame {
     
     User localUser;
     private static DatabaseConnectivity connect = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
@@ -27,7 +27,7 @@ public class Dashboard extends javax.swing.JFrame {
     /**
      * Creates new form UserActivity
      */
-    public Dashboard() {
+    public Template() {
         initComponents();
         
         this.localUser = null;
@@ -42,7 +42,7 @@ public class Dashboard extends javax.swing.JFrame {
      * Constructor in use if accessed form program, displays data
      * @param localUser user displaying the page 
      */
-    Dashboard(User localUser) {
+    Template(User localUser) {
         initComponents();
         this.localUser = localUser;
         usernameField.setText(localUser.getName()+" "+localUser.getSurname());
@@ -154,7 +154,7 @@ public class Dashboard extends javax.swing.JFrame {
         searchUsernameField.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         searchUsernameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                Dashboard.this.keyReleased(evt);
+                Template.this.keyReleased(evt);
             }
         });
 
@@ -332,9 +332,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void administratorDetailLableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administratorDetailLableMousePressed
         // TODO add your handling code here:
         
-        //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("User Activity");
+        
         
         UserActivity act = new UserActivity(localUser);
         act.setVisible(true);
@@ -346,9 +344,7 @@ public class Dashboard extends javax.swing.JFrame {
     private void projectDetailsLabaleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_projectDetailsLabaleMousePressed
         // TODO add your handling code here:
         
-        //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("Project Details");
+        
         
         ProjectDetails detail = new ProjectDetails(localUser);
         detail.setVisible(true);
@@ -375,14 +371,30 @@ public class Dashboard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Template.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -403,7 +415,7 @@ public class Dashboard extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Dashboard().setVisible(true);
+                new Template().setVisible(true);
             }
         });
     }

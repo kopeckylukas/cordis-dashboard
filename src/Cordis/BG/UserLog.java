@@ -52,4 +52,18 @@ public class UserLog {
         return confirm == 0;
     }
     
+    public Boolean logActivity(String activity){
+        
+        long unixTime = System.currentTimeMillis();
+        java.sql.Timestamp logTime = new java.sql.Timestamp(unixTime);
+        Integer userID = localUser.getID();
+        
+        String SQL = "insert into ActivityLog ( logTime, logType, userID) "
+                + "values('"+logTime+"', '"+activity+"', "+userID+");";
+        
+        Integer confirm = databaseConnectivity.updateDatabase(SQL);
+        
+        return confirm == 0;
+    }
+    
 }
