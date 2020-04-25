@@ -65,6 +65,9 @@ public class ProjectDetails extends javax.swing.JFrame {
             administratorDetailLable.setVisible(true);
         }
         
+        UserLog log = new UserLog(localUser);
+        log.logActivity("Project Details");
+        
     }
 
     /**
@@ -369,10 +372,11 @@ public class ProjectDetails extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(orgSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(orgMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(surnameSearchLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(orgMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(surnameSearchLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(surnameSearchLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -461,9 +465,7 @@ public class ProjectDetails extends javax.swing.JFrame {
     private void administratorDetailLableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administratorDetailLableMousePressed
         // TODO add your handling code here:
         
-        //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("User Activity");
+        
         
         UserActivity act = new UserActivity(localUser);
         act.setVisible(true);
@@ -474,9 +476,7 @@ public class ProjectDetails extends javax.swing.JFrame {
 
     private void overviewLabalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_overviewLabalMousePressed
         
-        //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("Overview");
+        
         
         Dashboard das = new Dashboard(localUser);
         das.setVisible(true);

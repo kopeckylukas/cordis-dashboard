@@ -35,6 +35,9 @@ public class UserDetails extends javax.swing.JFrame {
         
         //Displaying default table
         defaultTable();
+        
+        UserLog log = new UserLog(localUser);
+        log.logActivity("User Details");
     }
 
     /**
@@ -474,6 +477,9 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void logOutSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMousePressed
         // TODO add your handling code here:
+        UserLog log = new UserLog(localUser);
+        log.logOut();
+        
         LogPage logp = new LogPage();
         logp.setVisible(true);
         logp.pack();
@@ -483,12 +489,10 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void dashboardTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMousePressed
         // TODO add your handling code here:
+       
         
         
-        UserLog log = new UserLog(localUser);
-        log.logOut();
-        
-        Dashboard das = new Dashboard();
+        Dashboard das = new Dashboard(localUser);
         das.setVisible(true);
         das.pack();
         das.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -497,6 +501,7 @@ public class UserDetails extends javax.swing.JFrame {
 
     private void userActSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userActSignMousePressed
         // TODO add your handling code here:
+        
         
         
         UserActivity userAct = new UserActivity(localUser);

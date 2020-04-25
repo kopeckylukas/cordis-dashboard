@@ -59,6 +59,9 @@ public class Dashboard extends javax.swing.JFrame {
             administratorDetailLable.setVisible(true);
         }
         
+        UserLog log = new UserLog(localUser);
+        log.logActivity("Overview");
+        
     }
 
     /**
@@ -333,8 +336,7 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("User Activity");
+        
         
         UserActivity act = new UserActivity(localUser);
         act.setVisible(true);
@@ -347,8 +349,7 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         //Activity log
-        UserLog log = new UserLog(localUser);
-        log.logActivity("Project Details");
+        
         
         ProjectDetails detail = new ProjectDetails(localUser);
         detail.setVisible(true);

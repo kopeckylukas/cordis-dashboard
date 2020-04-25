@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * 
  * @author lukaskopecky
  */
 public class UserActivity extends javax.swing.JFrame {
@@ -48,9 +48,11 @@ public class UserActivity extends javax.swing.JFrame {
         usernameField.setText(localUser.getName()+" "+localUser.getSurname());
         
         
+        UserLog log = new UserLog(localUser);
+        log.logActivity("User Activity");
+        
         //view defautl table input
         defaultTable();
-        
     }
 
     /**
@@ -425,6 +427,8 @@ public class UserActivity extends javax.swing.JFrame {
 
     private void userDetSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userDetSignMousePressed
         // TODO add your handling code here:
+        
+        
         UserDetails userD = new UserDetails(localUser);
         userD.setVisible(true);
         userD.pack();
@@ -470,7 +474,7 @@ public class UserActivity extends javax.swing.JFrame {
         });
     }
     
-    /**]
+    /**
      * Displaying default table view
      */
     public final void defaultTable(){
