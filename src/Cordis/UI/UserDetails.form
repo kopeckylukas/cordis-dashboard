@@ -45,13 +45,15 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jSeparator1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
-                                  <Component id="adminSign" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="307" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" pref="56" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="adminSign" min="-2" pref="102" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="410" max="-2" attributes="0"/>
                                   <Component id="userDetailsSign" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -82,19 +84,6 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="footerLab" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="741" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="fotterLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="379" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="informLabel" min="-2" pref="572" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
@@ -103,28 +92,51 @@
                   <Component id="searchUsernameField" min="-2" pref="568" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="fotterLabel" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="438" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="footerLab" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="728" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="adminSign" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="userDetailsSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel2" min="-2" pref="53" max="-2" attributes="0"/>
+                              <Component id="userDetailsSign" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+                          <Component id="adminSign" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator1" min="-2" pref="10" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="userActSign" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="userDetSign" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="logOutSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="dashboardTab" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="userActSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="userDetSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="logOutSign" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usernameField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                   <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                  <Component id="jScrollPane1" pref="657" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" pref="633" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -135,9 +147,9 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="footerLab" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="fotterLabel" min="-2" pref="31" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
               </Group>
@@ -153,7 +165,7 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="66" green="99" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="CORDIS H2020"/>
+            <Property name="text" type="java.lang.String" value="CORDIS "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
@@ -338,6 +350,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="*To Change User Type Click on a user in the table"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_AddingCodePost" type="java.lang.String" value="jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource(&quot;/Image/DashboardLogom.png&quot;)));"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JLabel()"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
