@@ -10,7 +10,7 @@ package Cordis.BG;
 
 import Cordis.Entities.User;
 import Cordis.UI.LogPage;
-import Cordis.UI.LukasPart;
+import Cordis.UI.ExperimentalLukas;
 
 
 /**
@@ -45,7 +45,7 @@ public class Main{
         
        
         //Display jFrame
-//        LukasPart lukas = new LukasPart();
+//        ExperimentalLukas lukas = new ExperimentalLukas();
 //        lukas.setVisible(true);
         
         

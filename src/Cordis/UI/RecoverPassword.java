@@ -157,7 +157,7 @@ public class RecoverPassword extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 153, 102));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Recovery Password");
+        jLabel3.setText("Password Recovery");
 
         questionBox.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         questionBox.setForeground(new java.awt.Color(204, 204, 204));
