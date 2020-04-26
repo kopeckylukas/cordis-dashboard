@@ -117,19 +117,21 @@
                           <Group type="102" attributes="0">
                               <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="UsernameT" min="-2" pref="256" max="-2" attributes="0"/>
                                   <Component id="PasswordT" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
                                   <Component id="submit" alignment="0" min="-2" pref="256" max="-2" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-                                      <Component id="signInLabel" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel2" min="-2" pref="19" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="signUpLabel" min="-2" max="-2" attributes="0"/>
-                                  </Group>
                                   <Component id="emailLab1" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="passwordLab1" alignment="0" min="-2" pref="79" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                                          <Component id="signInLabel" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel2" min="-2" pref="19" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="signUpLabel" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Component id="UsernameT" min="-2" pref="256" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
