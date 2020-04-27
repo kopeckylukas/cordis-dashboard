@@ -104,8 +104,8 @@ public class ProjectDetails extends javax.swing.JFrame {
         surnameSearchLabel4 = new javax.swing.JLabel();
         surnameSearchLabel5 = new javax.swing.JLabel();
         proSearch = new javax.swing.JTextField();
-        orgMenu = new javax.swing.JComboBox<String>();
-        proMenu = new javax.swing.JComboBox<String>();
+        orgMenu = new javax.swing.JComboBox<>();
+        proMenu = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -141,7 +141,7 @@ public class ProjectDetails extends javax.swing.JFrame {
 
         userActivitySign.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         userActivitySign.setForeground(new java.awt.Color(255, 153, 102));
-        userActivitySign.setText("DASBOARD - PROJECT DETAILS");
+        userActivitySign.setText("DASHBOARD - PROJECT DETAILS");
 
         currentLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         currentLabel.setForeground(new java.awt.Color(255, 153, 102));
@@ -277,10 +277,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         });
 
         orgMenu.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        orgMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "By Name", "By Country", "By Organisation ID", "By City or Town", "By Activity Type" }));
+        orgMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "By Name", "By Country", "By Organisation ID", "By City or Town", "By Activity Type" }));
 
         proMenu.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        proMenu.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "By Title & Acronym", "By ID", "By Status", "By Start Date", "By End Date", "By Funding Scheme" }));
+        proMenu.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "By Title & Acronym", "By ID", "By Status", "By Start Date", "By End Date", "By Funding Scheme" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -344,11 +344,12 @@ public class ProjectDetails extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(userActivitySign)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
-                        .addComponent(adminSign)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(userActivitySign, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(9, 9, 9)
+                            .addComponent(adminSign))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)

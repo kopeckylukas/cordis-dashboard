@@ -462,6 +462,9 @@ public class RecoverPassword extends javax.swing.JFrame {
             confBox.setVisible(true);
         
             secButton.setVisible(true);
+        }else{
+            //Display Error Dialog
+            JOptionPane.showMessageDialog(null, "Your Answers are not matching, please try again", "No Match", JOptionPane.WARNING_MESSAGE);   
         }
         
     }//GEN-LAST:event_fistButtonActionPerformed

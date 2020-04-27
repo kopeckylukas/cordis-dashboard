@@ -115,7 +115,7 @@ public class LogPage extends javax.swing.JFrame {
         PasswordT.setForeground(new java.awt.Color(153, 153, 153));
 
         passwordLab.setForeground(new java.awt.Color(255, 153, 102));
-        passwordLab.setText("Forgoten Password");
+        passwordLab.setText("Forgotten Password");
         passwordLab.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 passwordLabMouseClicked(evt);
