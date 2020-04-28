@@ -14,7 +14,7 @@ import Cordis.UI.ExperimentalLukas;
 
 
 /**
- *
+ * Entry Point of the Project
  * @author lukaskopecky
  */
 public class Main{
@@ -24,7 +24,7 @@ public class Main{
     public static void main (String[] args){
         System.out.println("[CORDIS] ... Welcome to Dashboard");
         
-        //New Thread runs Console Output
+        //New Thread runs Console Output -- Experimental
         Thread test = new Thread(new ConsoleTest());
         test.start();
         
@@ -48,7 +48,7 @@ public class Main{
 //        ExperimentalLukas lukas = new ExperimentalLukas();
 //        lukas.setVisible(true);
         
-        
+        //Dislay the log page
         LogPage log = new LogPage();
         log.setVisible(true);
 

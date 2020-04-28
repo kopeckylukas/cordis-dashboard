@@ -83,6 +83,11 @@
                                       <EmptySpace type="separate" max="-2" attributes="0"/>
                                       <Component id="proSearch" min="-2" pref="455" max="-2" attributes="0"/>
                                   </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="usernameField" min="-2" pref="256" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="logOutSign" min="-2" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
                               <Component id="surnameSearchLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jScrollPane3" alignment="0" min="-2" pref="1513" max="-2" attributes="0"/>
@@ -96,10 +101,6 @@
                           <Component id="currentLabel" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="administratorDetailLable" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="855" max="-2" attributes="0"/>
-                          <Component id="usernameField" min="-2" pref="256" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="logOutSign" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jSeparator2" alignment="0" min="-2" pref="1600" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">

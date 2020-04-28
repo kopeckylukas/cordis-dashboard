@@ -6,7 +6,7 @@
 package Cordis.Entities;
 
 /**
- *
+ *  Describing Programme entity form Cordis Database
  * @author lukaskopecky
  */
 public class Programme {

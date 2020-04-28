@@ -382,6 +382,7 @@ public class RecoverPassword extends javax.swing.JFrame {
 
     /**
      * Check email
+     * Created By Mhanaj Hossain
      * @param evt on key release
      */
     private void mailCheckOnRlease(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_mailCheckOnRlease
@@ -432,6 +433,7 @@ public class RecoverPassword extends javax.swing.JFrame {
 
     /**
      * Check if answer matches
+     * Created By Mhnaj Hossain
      * @param evt on click
      */
     private void fistButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fistButtonActionPerformed
@@ -471,6 +473,7 @@ public class RecoverPassword extends javax.swing.JFrame {
 
     /**
      * New Password
+     * Created By Mhanaj Hossain, implementing code from Registration By Lukas Kopecky
      * @param evt on click event
      */
     private void secButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_secButtonActionPerformed

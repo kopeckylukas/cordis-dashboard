@@ -6,7 +6,7 @@
 package Cordis.Entities;
 
 /**
- *
+ * Describing Address entity form Cordis Database
  * @author lukaskopecky
  */
 public class Address {

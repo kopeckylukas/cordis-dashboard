@@ -13,7 +13,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Experimental file to display data in tables
  * @author lukaskopecky
  */
 public class ExperimentalLukas extends javax.swing.JFrame {

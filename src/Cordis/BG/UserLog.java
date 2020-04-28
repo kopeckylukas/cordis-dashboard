@@ -9,12 +9,12 @@ import Cordis.DB.DatabaseConnectivity;
 import Cordis.Entities.User;
 
 /**
- *
+ * Class which is responsible for user Logs
  * @author lukaskopecky
  */
 public class UserLog {
 
-    private User localUser;
+    private  User localUser;
     DatabaseConnectivity databaseConnectivity;
     
     public UserLog(User localUser) {
@@ -22,7 +22,10 @@ public class UserLog {
         databaseConnectivity = new DatabaseConnectivity("jdbc:sqlite:Users.sqlite3");
     }
     
-    
+    /**
+     * Log In user
+     * @return returns true if SQL error Number ==0
+     */
     public Boolean logIn(){ 
        
         long unixTime = System.currentTimeMillis();
@@ -37,7 +40,10 @@ public class UserLog {
         return confirm == 0;
     }
     
-    
+    /**
+     * Log Out user
+     * @return returns true if SQL error Number ==0
+     */
     public Boolean logOut(){
         
         long unixTime = System.currentTimeMillis();
@@ -52,6 +58,11 @@ public class UserLog {
         return confirm == 0;
     }
     
+    /**
+     * Universal method to register any user log
+     * @param activity string name of activity
+     * @return returns true if SQL error Number ==0
+     */
     public Boolean logActivity(String activity){
         
         long unixTime = System.currentTimeMillis();

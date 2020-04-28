@@ -7,7 +7,7 @@ package Cordis.Entities;
 import java.sql.Date;
 
 /**
- *
+ * Describing Projects entity form Cordis Database
  * @author lukaskopecky
  */
 public class Project {

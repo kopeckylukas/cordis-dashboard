@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * Front-End Application, Displaying user Details, enables to change user type
  * @author lukaskopecky
  */
 public class UserDetails extends javax.swing.JFrame {
@@ -475,6 +475,10 @@ public class UserDetails extends javax.swing.JFrame {
        }
     }//GEN-LAST:event_searchUsernameFieldKeyReleased
 
+    /**
+     * Log out
+     * @param evt on press
+     */
     private void logOutSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMousePressed
         // TODO add your handling code here:
         UserLog log = new UserLog(localUser);
@@ -487,6 +491,10 @@ public class UserDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logOutSignMousePressed
 
+    /**
+     * Switch to Dashboard
+     * @param evt on press
+     */
     private void dashboardTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMousePressed
         // TODO add your handling code here:
        
@@ -499,6 +507,10 @@ public class UserDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_dashboardTabMousePressed
 
+    /**
+     * Switch to user Activity
+     * @param evt 
+     */
     private void userActSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userActSignMousePressed
         // TODO add your handling code here:
         
@@ -563,21 +575,27 @@ public class UserDetails extends javax.swing.JFrame {
         
         //Creates Array of Columns names
         String [] nameOfCompoundCategories = new String [list.get(1).size()];
+        
         //Populating Array Of Columns Names 
         for(int n = 0; n<list.get(0).size(); n++){
             nameOfCompoundCategories [n] = list.get(0).get(n);
         }
         
+        
         //loading data
         Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
+        //go throuhg rows
         for(int l = 1; l<list.size(); l++){
+            //go thorough columns
             for(int r = 0; r<list.get(l).size(); r++){
+                
                 if(r == 3){
                     String type = list.get(l).get(r);
                     if(type.equals("A"))
                         compoundData [l-1] [r] = "Administrator";
                     else
                         compoundData [l-1] [r] = "User";
+                    
                     
                 }else{
                     compoundData [l-1] [r] = list.get(l).get(r);

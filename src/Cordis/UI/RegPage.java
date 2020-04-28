@@ -326,7 +326,7 @@ public class RegPage extends javax.swing.JFrame {
 
     /**
      * Registration Button, Opens Sign
-     * Created By Lukas Kopecky
+     * Created By Mhanaj Hossain, implemented by Lukas Kopecky
      * @param evt on click event 
      */
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed

@@ -32,8 +32,8 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
- *
- * @author lukaskopecky
+ * Front-end dashboard view
+ * @author lukaskopecky and Reyad Reza
  */
 public final class Dashboard extends javax.swing.JFrame {
     
@@ -292,16 +292,16 @@ public final class Dashboard extends javax.swing.JFrame {
         graph_panel3 = new javax.swing.JPanel();
         ecTotal = new javax.swing.JLabel();
         footerLab3 = new javax.swing.JLabel();
-        ecContribution = new javax.swing.JComboBox<String>();
-        graphDisplay = new javax.swing.JComboBox<String>();
+        ecContribution = new javax.swing.JComboBox<>();
+        graphDisplay = new javax.swing.JComboBox<>();
         graph_panel5 = new javax.swing.JPanel();
         totalCostLabel = new javax.swing.JLabel();
         footerLab4 = new javax.swing.JLabel();
-        totalCost = new javax.swing.JComboBox<String>();
+        totalCost = new javax.swing.JComboBox<>();
         graph_panel4 = new javax.swing.JPanel();
         ecTotalO = new javax.swing.JLabel();
         footerLab5 = new javax.swing.JLabel();
-        ecContributionO = new javax.swing.JComboBox<String>();
+        ecContributionO = new javax.swing.JComboBox<>();
         graph_panel6 = new javax.swing.JPanel();
         fsLabel = new javax.swing.JLabel();
         footerLab6 = new javax.swing.JLabel();
@@ -421,7 +421,7 @@ public final class Dashboard extends javax.swing.JFrame {
         footerLab3.setText("European Commission Contribution on Projects");
 
         ecContribution.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        ecContribution.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Total", "Minimum", "Maximum", "Average" }));
+        ecContribution.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total", "Minimum", "Maximum", "Average" }));
         ecContribution.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ecContributionActionPerformed(evt);
@@ -456,7 +456,7 @@ public final class Dashboard extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        graphDisplay.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Proportion Of Organisations Per Selected Countries", "Running Projects Per Year" }));
+        graphDisplay.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Proportion Of Organisations Per Selected Countries", "Running Projects Per Year" }));
         graphDisplay.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 graphDisplayActionPerformed(evt);
@@ -475,7 +475,7 @@ public final class Dashboard extends javax.swing.JFrame {
         footerLab4.setText("Total cost of Projects");
 
         totalCost.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        totalCost.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Total", "Minimum", "Maximum", "Average" }));
+        totalCost.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total", "Minimum", "Maximum", "Average" }));
         totalCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalCostActionPerformed(evt);
@@ -521,7 +521,7 @@ public final class Dashboard extends javax.swing.JFrame {
         footerLab5.setText("European Commision Contribution on Organisations");
 
         ecContributionO.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        ecContributionO.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Total", "Minimum", "Maximum", "Average" }));
+        ecContributionO.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Total", "Minimum", "Maximum", "Average" }));
         ecContributionO.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ecContributionOActionPerformed(evt);
@@ -638,24 +638,26 @@ public final class Dashboard extends javax.swing.JFrame {
                                             .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                             .addComponent(logOutSign))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(graphDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(graph_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(graph_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(graph_panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(graph_panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addGap(18, 18, 18)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(graph_panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(graph_panel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addGap(18, 18, 18)
-                                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                                    .addGap(13, 13, 13)))))
+                                                .addComponent(graph_panel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(graph_panel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGap(18, 18, 18)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(graph_panel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(graph_panel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addGap(18, 18, 18)
+                                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGap(13, 13, 13))))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGap(55, 55, 55)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(graphDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(graph_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(graph_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(45, 45, 45)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(761, 761, 761)
                         .addComponent(footerLab))
@@ -669,7 +671,7 @@ public final class Dashboard extends javax.swing.JFrame {
                         .addComponent(projectDetailsLabale)
                         .addGap(18, 18, 18)
                         .addComponent(administratorDetailLable)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(93, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -695,13 +697,13 @@ public final class Dashboard extends javax.swing.JFrame {
                     .addComponent(administratorDetailLable)
                     .addComponent(logOutSign)
                     .addComponent(usernameField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(28, 28, 28)
                 .addComponent(graphDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(graph_panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(graph_panel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -750,6 +752,10 @@ public final class Dashboard extends javax.swing.JFrame {
         administratorDetailLable.setBorder(null);
     }//GEN-LAST:event_administratorDetailLableMouseExited
 
+    /**
+     * Administrator view anchor
+     * @param evt on mouse pressed
+     */
     private void administratorDetailLableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administratorDetailLableMousePressed
         // TODO add your handling code here:
 
@@ -773,6 +779,11 @@ public final class Dashboard extends javax.swing.JFrame {
         logOutSign.setBorder(null);
     }//GEN-LAST:event_logOutSignMouseExited
 
+    
+    /**
+     * Log Out
+     * @param evt On Mouse Pressed
+     */
     private void logOutSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMousePressed
         // TODO add your handling code here:
 
@@ -797,6 +808,11 @@ public final class Dashboard extends javax.swing.JFrame {
         projectDetailsLabale.setBorder(null);
     }//GEN-LAST:event_projectDetailsLabaleMouseExited
 
+    
+    /**
+     * Go to project details 
+     * @param evt on mouse pressed
+     */
     private void projectDetailsLabaleMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_projectDetailsLabaleMousePressed
         // TODO add your handling code here:
 
@@ -810,6 +826,10 @@ public final class Dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_projectDetailsLabaleMousePressed
 
+    /**
+     * Change the Graph into Line Graph
+     * @param evt On Action
+     */
     private void graphDisplayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graphDisplayActionPerformed
         String choice = (String) graphDisplay.getSelectedItem();
         
@@ -882,6 +902,11 @@ public final class Dashboard extends javax.swing.JFrame {
         
     }//GEN-LAST:event_graphDisplayActionPerformed
 
+    
+    /**
+     * Display EC contribution
+     * @param evt on Action
+     */
     private void ecContributionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecContributionActionPerformed
         String choice = (String) ecContribution.getSelectedItem();
         String query;
@@ -920,6 +945,10 @@ public final class Dashboard extends javax.swing.JFrame {
         ecTotal.setText(message);
     }//GEN-LAST:event_ecContributionActionPerformed
 
+    /**
+     * Display Total cost
+     * @param evt on Action
+     */
     private void totalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalCostActionPerformed
          String choice = (String) totalCost.getSelectedItem();
         String query;
@@ -958,6 +987,10 @@ public final class Dashboard extends javax.swing.JFrame {
         totalCostLabel.setText(message);
     }//GEN-LAST:event_totalCostActionPerformed
 
+    /**
+     * Display Org EC Participation
+     * @param evt on click event
+     */
     private void ecContributionOActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ecContributionOActionPerformed
         String choice = (String) ecContributionO.getSelectedItem();
         String query;
@@ -994,6 +1027,10 @@ public final class Dashboard extends javax.swing.JFrame {
         ecTotalO.setText(message);
     }//GEN-LAST:event_ecContributionOActionPerformed
 
+    /**
+     * Display numbers of Project within a Founding Scheme
+     * @param evt on Mouse pressed
+     */
     private void fsTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_fsTableMousePressed
         Integer row = fsTable.getSelectedRow();
         
@@ -1062,6 +1099,9 @@ public final class Dashboard extends javax.swing.JFrame {
         });
     }
     
+    /**
+     * All methods below are displaying data while this object is being created
+     */
     public void psDefault(){
         String query = "SELECT fCode as \"Code\", fTitle as \"Funding Scheme\"  FROM Funding_Scheme;";
         
@@ -1087,6 +1127,7 @@ public final class Dashboard extends javax.swing.JFrame {
         DefaultTableModel compoundModel = (DefaultTableModel) fsTable.getModel();
         compoundModel.setDataVector(compoundData,nameOfCompoundCategories); 
     }
+    
     
     public void totalOrg(){
         

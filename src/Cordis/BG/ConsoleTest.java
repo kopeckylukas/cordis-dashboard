@@ -14,10 +14,11 @@ import Cordis.Entities.Project;
 import java.util.List;
 
 /**
- *
+ * Class For testing purposes
  * @author lukaskopecky
  */
 public class ConsoleTest implements Runnable {
+    
     
     
     
@@ -31,7 +32,7 @@ public class ConsoleTest implements Runnable {
         System.out.println("[ConsoleTest] ... Test is running");
        
         
-        
+        //tryEncrypt();
         //registerDefaultUsers();
         //databaseConnectivityTest_SELECT();
         //displayAllProjects();
@@ -199,6 +200,15 @@ public class ConsoleTest implements Runnable {
             }
             System.out.println(sb.toString());
         }
+    }
+
+    private void tryEncrypt() {
+        Encryption e = new Encryption();
+        
+       String w =  e.Encrypt("Hello");
+        
+        System.out.println("this is output"+w);
+        
     }
 
     

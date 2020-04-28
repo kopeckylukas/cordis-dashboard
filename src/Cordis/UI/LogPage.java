@@ -267,7 +267,7 @@ public class LogPage extends javax.swing.JFrame {
     
     /**
      * Submit method, SIGN IN USER
-     * Created BY Lukas Kopecky
+     * Created BY Mhanaj Hossain, updated by Lukas Kopecky
      * @param evt action on click
      */
     private void submitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitActionPerformed

@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ * FRONT END - Displaying front end details of the application 
  * @author lukaskopecky
  */
 public class ProjectDetails extends javax.swing.JFrame {
@@ -315,7 +315,11 @@ public class ProjectDetails extends javax.swing.JFrame {
                                     .addGap(18, 18, 18)
                                     .addComponent(proMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGap(18, 18, 18)
-                                    .addComponent(proSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(proSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 455, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(logOutSign)))
                             .addComponent(surnameSearchLabel5)
                             .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 1513, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1600, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -325,11 +329,7 @@ public class ProjectDetails extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(currentLabel)
                         .addGap(18, 18, 18)
-                        .addComponent(administratorDetailLable)
-                        .addGap(855, 855, 855)
-                        .addComponent(usernameField, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(logOutSign))
+                        .addComponent(administratorDetailLable))
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 1600, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(776, 776, 776)
@@ -441,6 +441,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         logOutSign.setBorder(label_border);
     }//GEN-LAST:event_logOutSignMouseEntered
 
+    /**
+     * Log Out
+     * @param evt mouse pressed
+     */
     private void logOutSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMousePressed
         // TODO add your handling code here:
         
@@ -454,6 +458,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logOutSignMousePressed
 
+    /**
+     * Display Administrator view
+     * @param evt mouse pressed
+     */
     private void administratorDetailLableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_administratorDetailLableMousePressed
         // TODO add your handling code here:
         
@@ -466,6 +474,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         this.dispose(); 
     }//GEN-LAST:event_administratorDetailLableMousePressed
 
+    /**
+     * Display Dashboard
+     * @param evt mouse pressed
+     */
     private void overviewLabalMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_overviewLabalMousePressed
         
         
@@ -477,6 +489,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         this.dispose(); 
     }//GEN-LAST:event_overviewLabalMousePressed
 
+    /**
+     * While Searching organisations
+     * @param evt on key released
+     */
     private void orgSearchkeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_orgSearchkeyReleased
          
         String searchFor = orgSearch.getText();
@@ -568,7 +584,10 @@ public class ProjectDetails extends javax.swing.JFrame {
     }//GEN-LAST:event_orgSearchkeyReleased
     
     
-    
+    /**
+     * While searching Projects
+     * @param evt on key release
+     */
     private void proSearchkeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_proSearchkeyReleased
         // TODO add your handling code here:
         String searchFor = proSearch.getText();
@@ -666,6 +685,10 @@ public class ProjectDetails extends javax.swing.JFrame {
         
     }//GEN-LAST:event_proSearchkeyReleased
 
+    /**
+     * Searching participation of Organisations
+     * @param evt on mouse pressed 
+     */
     private void orgTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_orgTableMousePressed
 Integer row = orgTable.getSelectedRow();
         
@@ -708,6 +731,11 @@ Integer row = orgTable.getSelectedRow();
         
     }//GEN-LAST:event_orgTableMousePressed
 
+    
+    /**
+     * Searching participations on projects
+     * @param evt on mouse click
+     */
     private void proTableMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_proTableMousePressed
         Integer row = proTable.getSelectedRow();
         
@@ -806,7 +834,7 @@ Integer row = orgTable.getSelectedRow();
     public final void defaultOrganisation(){
         //Intialise default query
         
-    //DISPLAY COMPOUND TABLE
+    //DISPLAY Didsplay ogranisatin
         //Query to be executed
         String query = "SELECT o.orgID AS \"Organisation ID\", o.orgName AS \"Name\", o.orgCountry AS \"Country\", l.city AS \"City or Town\", o.orgURL AS \"Website\", o.orgVATNumber AS \"VAT Number\",  a.oTitle AS \"Activity Type\" "
                 + "FROM Organisation o JOIN Organisation_Activity_Type a "
@@ -844,7 +872,7 @@ Integer row = orgTable.getSelectedRow();
         public final void defaultProject(){
         //Intialise default query
         
-    //DISPLAY COMPOUND TABLE
+    //DISPLAY Poject
         //Query to be executed
         String query = "SELECT p.proID as \"Project ID\", p.proAcronym AS Acronym, p.proTitle AS Titile, p.proStatus AS Status, p.proStartDate AS \"Start Date\", "
                 + "p.proEndDate AS \"End Date\", p.proTotalCost AS \"Total Cost €\", p.proEcMaxContribution AS \"Max EC Contribution €\", f.fTitle as \"Funding Scheme\" "

@@ -17,7 +17,7 @@ import java.sql.Statement;
 
 
 /**
- * DatabaseConnectivity 
+ * DatabaseConnectivity  Page, any query is valid, returns string
  * Query any local database
  * @author lukaskopecky
  */

@@ -6,7 +6,7 @@
 package Cordis.Entities;
 
 /**
- *
+ *  Describing OrganisationType entity form Cordis Database
  * @author lukaskopecky
  */
 public class OrganisationType {

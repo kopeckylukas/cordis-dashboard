@@ -30,7 +30,7 @@ import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
 
 /**
- *
+ * Individual Part of Md Reyad
  * @author reyad
  */
 public class ExperimentalReyad extends javax.swing.JFrame {

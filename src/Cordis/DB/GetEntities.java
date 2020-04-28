@@ -23,7 +23,7 @@ import java.util.List;
  * Retrieving data from Cordis 2020 database only and returning them in form of
  * an ArrayList, user defined type (types stored in package Cordis.Entities)
  *
- * @author Girish Lukka, modified by Lukas Kopecky
+ * @author Girish Lukka, modified by Lukas Kopecky and Md Reyad
  */
 public class GetEntities {
 

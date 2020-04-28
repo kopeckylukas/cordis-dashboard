@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 
 /**
- * 
+ * Front-End displaying user activity logs
  * @author lukaskopecky
  */
 public class UserActivity extends javax.swing.JFrame {
@@ -345,6 +345,8 @@ public class UserActivity extends javax.swing.JFrame {
             Object[][] compoundData = new String[list.size()-1][list.get(1).size()];
             for(int l = 1; l<list.size(); l++){
                 for(int r = 0; r<list.get(l).size(); r++){
+                    
+                    //If userType = A -> Administrator || if U -> User
                     if(r == 3){
                         String type = list.get(l).get(r);
                         if(type.equals("A"))
@@ -352,6 +354,7 @@ public class UserActivity extends javax.swing.JFrame {
                         else
                             compoundData [l-1] [r] = "User";
 
+                    // fill up other fields apart column 4(index 3)    
                     }else{
                         compoundData [l-1] [r] = list.get(l).get(r);
                     }
@@ -394,6 +397,10 @@ public class UserActivity extends javax.swing.JFrame {
         logOutSign.setBorder(label_border);
     }//GEN-LAST:event_logOutSignMouseEntered
 
+    /**
+     * Log out
+     * @param evt on press
+     */
     private void logOutSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_logOutSignMousePressed
         // TODO add your handling code here:
         
@@ -407,6 +414,10 @@ public class UserActivity extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_logOutSignMousePressed
 
+    /**
+     * Go to Dashboard
+     * @param evt on press
+     */
     private void dashboardTabMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dashboardTabMousePressed
         // TODO add your handling code here:
         
@@ -419,6 +430,10 @@ public class UserActivity extends javax.swing.JFrame {
         this.dispose(); 
     }//GEN-LAST:event_dashboardTabMousePressed
 
+    /**
+     * Got to User Details
+     * @param evt on press
+     */
     private void userDetSignMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_userDetSignMousePressed
         // TODO add your handling code here:
         
