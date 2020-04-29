@@ -16,7 +16,7 @@ import javax.swing.border.Border;
 
 /**
  * Registration
- * @author lukaskopecky & mhanaj
+ * @author lukaskopecky AND mhanaj
  */
 public class RegPage extends javax.swing.JFrame {
     

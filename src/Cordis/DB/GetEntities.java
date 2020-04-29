@@ -31,7 +31,7 @@ public class GetEntities {
 
     /**
      * Constructs Database Connectivity, connects only Codrdis2020 database
-     * Created by Girish Lukka modified By Lukas Kopecky & Md Reyad
+     * Created by Girish Lukka modified By Lukas Kopecky AND Md Reyad
      */
     public GetEntities() {
         try {
@@ -90,12 +90,12 @@ public class GetEntities {
     }
 
     /**
-     * Retrieves HashMap of <Integer, String> pair. Integer Contains the count
+     * Retrieves HashMap of  pair. Integer Contains the count
      * of organizations and String contains the oCode namee
      *
      * @param where condition of query, where is name of country you will be
      * querying
-     * @return HashMap<Integer,String> of organization activity of some country
+     * @return HashMap of organization activity of some country
      */
     public HashMap<Integer, String> getTop5OrganizationsByActivity(String where) {
         //SQLi query to be executed
@@ -125,12 +125,11 @@ public class GetEntities {
     }
 
     /**
-     * Retrieves LinkedHashMap of <Integer, String> pair. Integer Contains the
+     * Retrieves LinkedHashMap of pair. Integer Contains the
      * count of Projects and String contains the year Linked used because it
      * saves the order also in which we put the data
      *
-     * @param no parameters
-     * @return LinkedHashMap<Integer,String> contains number projects started in
+     * @return LinkedHashMap contains number projects started in
      * each year
      */
     public LinkedHashMap<Integer, String> getProjectsByYear() {
@@ -162,10 +161,10 @@ public class GetEntities {
     }
 
     /**
-     * Retrieves HashMap of <Integer, String> pair. Integer Contains the count
+     * Retrieves HashMap of  pair. Integer Contains the count
      * of organizations and String contains the country name
      *
-     * @return HashMap<Integer,String> containing number organization for each
+     * @return HashMap containing number organization for each
      * country
      */
     public HashMap<Integer, String> getOrganizationsCountByCountries() {

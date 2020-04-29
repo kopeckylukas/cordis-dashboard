@@ -18,7 +18,7 @@ import javax.swing.border.Border;
 
 /**
  * Login Frame
- * @author hossa & lukaskopecky
+ * @author hossa AND lukaskopecky
  */
 public class LogPage extends javax.swing.JFrame {
     

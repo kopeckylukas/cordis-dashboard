@@ -99,7 +99,7 @@ public class Template extends javax.swing.JFrame {
 
         userActivitySign.setFont(new java.awt.Font("Dialog", 1, 22)); // NOI18N
         userActivitySign.setForeground(new java.awt.Color(255, 153, 102));
-        userActivitySign.setText("DASBOARD - OVERVIEW");
+        userActivitySign.setText("Template");
 
         overviewLabel.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         overviewLabel.setForeground(new java.awt.Color(255, 153, 102));
@@ -185,9 +185,9 @@ public class Template extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
                         .addComponent(adminSign)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(userActivitySign)
-                        .addGap(515, 515, 515))
+                        .addGap(565, 565, 565)
+                        .addComponent(userActivitySign, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -199,7 +199,7 @@ public class Template extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(684, 684, 684)
                                 .addComponent(footerLab)))
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addGap(0, 93, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(surnameSearchLabel1)
@@ -223,12 +223,11 @@ public class Template extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(adminSign)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(adminSign)
-                        .addGap(12, 12, 12))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(userActivitySign)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGap(3, 3, 3)
+                        .addComponent(userActivitySign, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

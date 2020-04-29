@@ -28,24 +28,7 @@ public class Project {
     private String callID;
     private FundingScheme fCode;
 
-    /**
-     * Short Constructor, only attributes that belongs to Entity Project
-     * @param proID
-     * @param proRCN
-     * @param proAcronym
-     * @param proTitle
-     * @param proFramework
-     * @param proStartDate
-     * @param proEndDate
-     * @param proURL
-     * @param proObjectives
-     * @param proTotalCost
-     * @param proEcMaxContribution
-     * @param proSubject
-     * @param Status
-     * @param TopicID
-     * @param callID 
-     */
+    
     public Project(Integer proID, Integer proRCN, String proAcronym, String proTitle, String proFramework, Date proStartDate, Date proEndDate, String proURL, String proObjectives, Double proTotalCost, Double proEcMaxContribution, String proSubject, String Status, String TopicID, String callID) {
         this.proID = proID;
         this.proRCN = proRCN;

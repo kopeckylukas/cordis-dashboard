@@ -45,7 +45,7 @@ public class DatabaseConnectivity {
     /**
      * Universal Constructor
      * Crates connection to any local database
-     * @param database 
+     * @param database database name
      */
     public DatabaseConnectivity(String database){
         try {

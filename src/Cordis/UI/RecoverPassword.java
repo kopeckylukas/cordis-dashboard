@@ -15,7 +15,7 @@ import javax.swing.border.Border;
 
 /**
  *
- * @author lukaskopecky & hossa
+ * @author lukaskopecky AND hossa
  */
 public class RecoverPassword extends javax.swing.JFrame {
 

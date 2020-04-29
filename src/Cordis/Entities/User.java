@@ -35,7 +35,7 @@ public class User {
 
     /**
      * Gets user identifier
-     * @return 
+     * @return id
      */
     public Integer getID() {
         return ID;

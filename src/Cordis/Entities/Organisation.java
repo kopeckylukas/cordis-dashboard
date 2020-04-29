@@ -110,7 +110,7 @@ public class Organisation {
     
     /**
      * Set location of Organisation (Address value accepted only)
-     * @param location 
+     * @param location location ID 
      */
     public void setLocation(Address location){
         this.location = location;
